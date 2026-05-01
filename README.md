@@ -198,7 +198,7 @@ curl -sSL https://cloud-linux-gui | bash
 ```
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║   🔭 AI Agent Orchestration     → Intelligent multi-agent    ║
+║   🔭 AI Agent Orchestration     → Intelligent multi-agent     ║
 ║   🌐 Cloud Infrastructure        → Scalable deployment        ║
 ║   🎮 Immersive 3D Interfaces     → Next-gen desktop UX        ║
 ║   🔐 Security-First Design       → Production-ready apps      ║
@@ -227,10 +227,10 @@ curl -sSL https://cloud-linux-gui | bash
 
 ```markdown
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  "Code is poetry, and I write novels."                     ┃
+┃  "Code is poetry, and I write novels."                   ┃
 ┃                                                          ┃
-┃  💬 Open for collaboration on AI, cloud, and developer    ┃
-┃     tools projects. Always learning, always building.     ┃
+┃  💬 Open for collaboration on AI, cloud, and developer   ┃
+┃     tools projects. Always learning, always building.    ┃
 ┃                                                          ┃
 ┃  ⚡ Fun fact: I turn coffee into code and bug reports.    ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
