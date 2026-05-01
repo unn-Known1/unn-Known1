@@ -2,7 +2,7 @@
 
 <!-- Animated typing effect -->
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?color=%2300D9FF&size=28&center=true&vCenter=true&width=600&height=50&lines=Full-Stack+Developer;AI+Agent+Architect;Cloud+Infrastructure+Builder;Open+Source+Enthusiast" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?color=%2300D9FF&size=28&center=true&vCenter=true&width=600&height=50&lines=Full-Stack+Developer;AI+Agent+Architect;Cloud+Infrastructure+Builder;Open+Source+Enthusiast" alt="Typing SVG" />
 </p>
 
 ---
@@ -26,10 +26,13 @@ I'm a passionate developer focused on building **intelligent systems**, **scalab
 
 ## 📊 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=radical&bg_color=0D1117&title_color=00D9FF&text_color=A8B1CC&icon_color=00D9FF" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=unn-Known1&theme=radical&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&sideNums=00D9FF&currStreakNum=00D9FF&sideLabels=FFF&currStreakLabel=FFF&shortContribNumber=FFF&theme=radical" alt="GitHub Streak" />
-</p>
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&icon_color=00D9FF)
+
+[![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=unn-Known1&theme=dark&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=00D9FF&sideNums=00D9FF)](https://git.io/streak-stats)
+
+</div>
 
 ---
 
@@ -161,28 +164,30 @@ curl -sSL https://cloud-linux-gui | bash
 
 ---
 
-## 📈 Activity
+## 📈 Contribution Activity
 
-<!-- Contribution graph placeholder -->
-<p align="center">
-  <img src="https://activity-graph.herokuapp.com/graph?username=unn-Known1&theme=radical&bg_color=0D1117&color=00D9FF&line=00D9FF&point=00D9FF" alt="Activity Graph" />
-</p>
+```
+█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Contributions this year
+```
+
+> 📌 Check out my GitHub profile for detailed contribution graphs and activity!
 
 ---
 
-## 🏆 Repository Stats
+## 🏆 Repository Highlights
 
-| Repo | Language | Stars | Forks |
-|------|----------|-------|-------|
-| claude-code-leak-complete-guide | Rust | ⭐ 6 | 1 |
-| cloud-linux-gui | HTML | ⭐ 1 | 0 |
-| localdrop | TypeScript | ⭐ 1 | 0 |
-| mobile-terminal | JavaScript | ⭐ 1 | 0 |
-| minimax-agent-linux | Shell | ⭐ 1 | 0 |
-| NVIDIA-AI-Gateway | Python | ⭐ 0 | 2 |
-| agenthq | TypeScript | ⭐ 0 | 0 |
-| depth-os | TypeScript | ⭐ 0 | 0 |
-| ai-company-platform | JavaScript | ⭐ 0 | 0 |
+<p align="center">
+
+| ⭐ Top Projects | Description |
+|----------------|-------------|
+| [claude-code-leak-complete-guide](https://github.com/unn-Known1/claude-code-leak-complete-guide) | Complete technical analysis (512K+ lines) |
+| [cloud-linux-gui](https://github.com/unn-Known1/cloud-linux-gui) | Browser-based Linux desktop |
+| [localdrop](https://github.com/unn-Known1/localdrop) | P2P secure file transfer |
+| [mobile-terminal](https://github.com/unn-Known1/mobile-terminal) | Cross-platform terminal |
+| [minimax-agent-linux](https://github.com/unn-Known1/minimax-agent-linux) | Linux port of MiniMax Agent |
+| [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway) | Production AI gateway |
+
+</p>
 
 ---
 
@@ -190,21 +195,15 @@ curl -sSL https://cloud-linux-gui | bash
 
 <div align="center">
 
-```ascii
-     ____     __     __     _____     ______     __  __
-    /\  _`\  /\ \   /\ \   /\  __`\  /\  _  \   /\ \/\ \
-    \ \ \/\_\\ \ \  \ \ \  \ \ \/\ \ \ \ \L\ \  \ \ \ \ \
-     \ \ \/_/_\ \ \  \ \ \  \ \ \ \ \ \ \  __ \  \ \ \ \ \
-      \ \ \L\ \ \ \__\ \ \__\ \ \ \_\ \ \ \ \/\ \  \ \ \_/ \
-       \ \____/ \/__/ \ \__/  \ \_____\ \ \_\ \_\   \ \_____\
-        \/___/       \/__/    \/_____/  \/_/\/_/    \/_____/
-
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-   🔭 AI Agent Orchestration    → Building intelligent multi-agent systems
-   🌐 Cloud Infrastructure       → Scalable deployment solutions
-   🎮 Immersive 3D Interfaces    → Next-gen desktop experiences
-   🔐 Security-First Design     → Production-ready secure applications
+```
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   🔭 AI Agent Orchestration     → Intelligent multi-agent    ║
+║   🌐 Cloud Infrastructure        → Scalable deployment        ║
+║   🎮 Immersive 3D Interfaces     → Next-gen desktop UX        ║
+║   🔐 Security-First Design       → Production-ready apps      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
 ```
 
 </div>
@@ -217,11 +216,8 @@ curl -sSL https://cloud-linux-gui | bash
   <a href="https://github.com/unn-Known1">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
-  <a href="https://www.linkedin.com/in/gaurang-patel">
+  <a href="https://www.linkedin.com/in/gaurangpatel5/">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://twitter.com/gaurangpatel">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
   </a>
 </p>
 
@@ -233,10 +229,10 @@ curl -sSL https://cloud-linux-gui | bash
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃  "Code is poetry, and I write novels."                     ┃
 ┃                                                          ┃
-┃  💬 Open for collaboration on AI, cloud, and developer   ┃
+┃  💬 Open for collaboration on AI, cloud, and developer    ┃
 ┃     tools projects. Always learning, always building.     ┃
 ┃                                                          ┃
-┃  ⚡ Fun fact: I turn coffee into code and bug reports.   ┃
+┃  ⚡ Fun fact: I turn coffee into code and bug reports.    ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
