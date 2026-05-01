@@ -28,9 +28,54 @@ I'm a passionate developer focused on building **intelligent systems**, **scalab
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&icon_color=00D9FF)
+<!-- Main Stats Cards -->
+<table>
+<tr>
+<td>
 
+### 📈 Profile Stats
+| Metric | Value |
+|--------|-------|
+| 🏠 **Repositories** | 43 |
+| 👥 **Followers** | 0 |
+| 👤 **Following** | 0 |
+| ⭐ **Total Stars** | 12+ |
+| 🍴 **Total Forks** | 5+ |
+| 📝 **Gists** | 0 |
+
+</td>
+<td>
+
+### 🏆 Achievements
+| Badge | Description |
+|-------|-------------|
+| 🎯 | First Repository |
+| 🚀 | 40+ Repos |
+| 🔥 | Active Contributor |
+| 🛡️ | Security Focused |
+| ☁️ | Cloud Native |
+
+</td>
+</tr>
+</table>
+
+---
+
+<!-- Dynamic Stats Widgets -->
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&icon_color=00D9FF)](https://github.com/unn-Known1)
 [![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=unn-Known1&theme=dark&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=00D9FF&sideNums=00D9FF)](https://git.io/streak-stats)
+
+---
+
+### 🌍 Most Used Languages
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=unn-Known1&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF)](https://github.com/unn-Known1)
+
+### 📊 Repository Stats
+
+| 📦 Total Repos | ⭐ Total Stars | 🍴 Total Forks | 📝 Lines of Code |
+|:--------------:|:--------------:|:-------------:|:----------------:|
+| **43** | **12+** | **5+** | **50K+** |
 
 </div>
 
@@ -198,7 +243,7 @@ curl -sSL https://cloud-linux-gui | bash
 ```
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║   🔭 AI Agent Orchestration     → Intelligent multi-agent     ║
+║   🔭 AI Agent Orchestration     → Intelligent multi-agent    ║
 ║   🌐 Cloud Infrastructure        → Scalable deployment        ║
 ║   🎮 Immersive 3D Interfaces     → Next-gen desktop UX        ║
 ║   🔐 Security-First Design       → Production-ready apps      ║
@@ -227,10 +272,10 @@ curl -sSL https://cloud-linux-gui | bash
 
 ```markdown
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  "Code is poetry, and I write novels."                   ┃
+┃  "Code is poetry, and I write novels."                     ┃
 ┃                                                          ┃
-┃  💬 Open for collaboration on AI, cloud, and developer   ┃
-┃     tools projects. Always learning, always building.    ┃
+┃  💬 Open for collaboration on AI, cloud, and developer    ┃
+┃     tools projects. Always learning, always building.     ┃
 ┃                                                          ┃
 ┃  ⚡ Fun fact: I turn coffee into code and bug reports.    ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
