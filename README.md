@@ -99,12 +99,7 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <div align="center">
 
 <a href="https://github.com/unn-Known1">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&include_all_commits=true&count_private=true" alt="Gaurang Patel GitHub stats card"/>
-  <img height="180em" src="https://github-readme-streak-stats.demolab.com/?user=unn-Known1&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF" alt="Gaurang Patel GitHub streak stats"/>
-</a>
-
-<a href="https://github.com/unn-Known1">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=unn-Known1&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&langs_count=10" alt="Most used programming languages"/>
+  <img height="180" src="https://streak-stats.demolab.com/?user=unn-Known1&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF" alt="Gaurang Patel GitHub streak stats"/>
 </a>
 
 </div>
