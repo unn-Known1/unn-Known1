@@ -1,124 +1,154 @@
-# Hey there, I'm Gaurang Patel 👋
+<!--
+  ██████╗  █████╗ ██╗   ██╗██████╗  █████╗ ███╗   ██╗ ██████╗
+ ██╔════╝ ██╔══██╗██║   ██║██╔══██╗██╔══██╗████╗  ██║██╔════╝
+ ██║  ███╗███████║██║   ██║██████╔╝███████║██╔██╗ ██║██║  ███╗
+ ██║   ██║██╔══██║██║   ██║██╔══██╗██╔══██║██║╚██╗██║██║   ██║
+ ╚██████╔╝██║  ██║╚██████╔╝██║  ██║██║  ██║██║ ╚████║╚██████╔╝
+  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝
+  Mechanical Engineer × Vibe Coder × AI Tinkerer — Zwickau, DE
+-->
 
-<!-- Animated typing effect -->
+<!-- ============== HERO BANNER (animated wave) ============== -->
+<a href="https://github.com/unn-Known1">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,2,5,30&height=260&section=header&text=Gaurang%20Patel&fontSize=70&fontAlignY=35&desc=Mechanical%20Engineer%20%C3%97%20Vibe%20Coder%20%C3%97%20AI%20Tinkerer&descSize=20&descAlignY=58&animation=twinkling&fontColor=ffffff" alt="Gaurang Patel — Mechanical Engineer and Vibe Coder banner" />
+</a>
+
+<!-- ============== TYPING SVG (refreshed lines) ============== -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?color=%2300D9FF&size=28&center=true&vCenter=true&width=600&height=50&lines=Full-Stack+Developer;AI+Agent+Architect;Cloud+Infrastructure+Builder;Open+Source+Enthusiast" alt="Typing SVG" />
+  <a href="https://github.com/unn-Known1">
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2800&pause=900&color=00D9FF&center=true&vCenter=true&multiline=false&width=820&height=55&lines=Manufacturing+Engineer+%F0%9F%9B%A0%EF%B8%8F+by+day%2C+Vibe+Coder+%F0%9F%92%BB+by+night;From+CAD+drawings+%E2%9C%8F%EF%B8%8F+to+AI+agents+%F0%9F%A4%96;I+turn+factory-floor+logic+into+code;Mechanical+%E2%9A%99%EF%B8%8F++Software+%E2%9C%A8++AI+%F0%9F%A7%A0;Building+cool+stuff+because+it's+fun" alt="Animated headline describing Gaurang Patel as a mechanical engineer and AI hobbyist" />
+  </a>
+</p>
+
+<!-- ============== SOCIAL ROW + VISITORS ============== -->
+<p align="center">
+  <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-Gaurang%20Patel-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/github/followers/unn-Known1?label=Follow&style=flat-square&color=00D9FF&logo=github" alt="GitHub followers"/></a>
+  <img src="https://komarev.com/ghpvc/?username=unn-Known1&label=Profile%20views&color=00d9ff&style=flat-square" alt="Profile visitor counter" />
+  <img src="https://img.shields.io/badge/📍 Zwickau-Saxony,%20Germany-red?style=flat-square" alt="Located in Zwickau, Saxony, Germany"/>
+  <img src="https://img.shields.io/badge/Open%20to-Collaboration-success?style=flat-square&logo=handshake&logoColor=white" alt="Open to collaboration"/>
 </p>
 
 ---
 
-## 🚀 About Me
+## 🧭 The Story Behind The Code
 
-I'm a passionate developer focused on building **intelligent systems**, **scalable infrastructure**, and **developer tools**. My work spans AI agent frameworks, cloud-native applications, and real-time systems.
+```yaml
+name:        Gaurang Patel
+role:        Manufacturing Engineer 🏭
+side_quest:  Vibe Coder & AI Hobbyist 🎧💻
+location:    Zwickau, Saxony — Germany 🇩🇪
+day_job:     Process Planning · Plant Simulation · MES
+night_job:   AI Agents · Cloud Tools · Wild Side Projects
+fuel:        ☕ × curiosity²
+philosophy:  "Engineering is engineering — whether it's gears or git commits."
+```
 
-<p align="center">
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" />
-</p>
+> 🛠️ **I'm not from an IT background.** I studied mechanical engineering, work on factory floors with **Tecnomatix Plant Simulation, MES, and process optimization**, and I started coding as a *hobby* because I love building things — physical or digital. Everything in this profile is shipped on weekends, evenings, and the occasional 2 AM rabbit hole. **Vibe-coded with care.** 💙
 
 ---
 
-## 📊 GitHub Stats
+## 🧰 What Powers Me — Tech Stack
+
+<details open>
+  <summary><b>🏭 Mechanical & Manufacturing (the day job)</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Tecnomatix%20Plant%20Simulation-005691?style=for-the-badge&logo=siemens&logoColor=white" alt="Tecnomatix Plant Simulation"/>
+    <img src="https://img.shields.io/badge/MES-1A73E8?style=for-the-badge" alt="Manufacturing Execution Systems"/>
+    <img src="https://img.shields.io/badge/Process%20Optimization-FF6F00?style=for-the-badge" alt="Process Optimization"/>
+    <img src="https://img.shields.io/badge/SolidWorks-CC0000?style=for-the-badge&logo=dassaultsystemes&logoColor=white" alt="SolidWorks"/>
+    <img src="https://img.shields.io/badge/AutoCAD-E51050?style=for-the-badge&logo=autodesk&logoColor=white" alt="AutoCAD"/>
+    <img src="https://img.shields.io/badge/Lean%20%26%20Industry%204.0-2E7D32?style=for-the-badge" alt="Lean and Industry 4.0"/>
+  </p>
+</details>
+
+<details open>
+  <summary><b>💻 Code & Frameworks (the hobby)</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://skillicons.dev/icons?i=ts,js,python,rust,react,nextjs,nodejs,electron,threejs,tailwind,html,css,bash" alt="Programming languages and frameworks: TypeScript, JavaScript, Python, Rust, React, Next.js, Node.js, Electron, Three.js, Tailwind, HTML, CSS, Bash"/>
+  </p>
+</details>
+
+<details open>
+  <summary><b>🤖 AI / LLM Playground</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic Claude"/>
+    <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
+    <img src="https://img.shields.io/badge/NVIDIA%20AI-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA AI"/>
+    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
+    <img src="https://img.shields.io/badge/RAG-4B0082?style=for-the-badge" alt="Retrieval Augmented Generation"/>
+    <img src="https://img.shields.io/badge/Multi--Agent%20Systems-8E44AD?style=for-the-badge" alt="Multi-agent systems"/>
+  </p>
+</details>
+
+<details>
+  <summary><b>☁️ Infra · DevOps · Tools</b></summary>
+  <br/>
+  <p align="center">
+    <img src="https://skillicons.dev/icons?i=docker,linux,git,github,githubactions,vercel,sqlite,cloudflare,vscode,postman,figma" alt="Infrastructure stack: Docker, Linux, Git, GitHub, GitHub Actions, Vercel, SQLite, Cloudflare, VSCode, Postman, Figma"/>
+  </p>
+</details>
+
+---
+
+## 📊 GitHub In Motion — Live Stats
 
 <div align="center">
 
-<!-- Main Stats Cards -->
-<table>
-<tr>
-<td>
+<a href="https://github.com/unn-Known1">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&icon_color=00D9FF&text_color=FFFFFF&include_all_commits=true&count_private=true" alt="Gaurang Patel GitHub stats card"/>
+  <img height="180em" src="https://github-readme-streak-stats.demolab.com/?user=unn-Known1&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF" alt="Gaurang Patel GitHub streak stats"/>
+</a>
 
-### 📈 Profile Stats
-| Metric | Value |
-|--------|-------|
-| 🏠 **Repositories** | 43 |
-| 👥 **Followers** | 0 |
-| 👤 **Following** | 0 |
-| ⭐ **Total Stars** | 12+ |
-| 🍴 **Total Forks** | 5+ |
-| 📝 **Gists** | 0 |
-
-</td>
-<td>
-
-### 🏆 Achievements
-| Badge | Description |
-|-------|-------------|
-| 🎯 | First Repository |
-| 🚀 | 40+ Repos |
-| 🔥 | Active Contributor |
-| 🛡️ | Security Focused |
-| ☁️ | Cloud Native |
-
-</td>
-</tr>
-</table>
-
----
-
-<!-- Dynamic Stats Widgets -->
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=unn-Known1&show_icons=true&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&icon_color=00D9FF)](https://github.com/unn-Known1)
-[![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=unn-Known1&theme=dark&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakNum=00D9FF&sideNums=00D9FF)](https://git.io/streak-stats)
-
----
-
-### 🌍 Most Used Languages
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=unn-Known1&theme=transparent&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF)](https://github.com/unn-Known1)
-
-### 📊 Repository Stats
-
-| 📦 Total Repos | ⭐ Total Stars | 🍴 Total Forks | 📝 Lines of Code |
-|:--------------:|:--------------:|:-------------:|:----------------:|
-| **43** | **12+** | **5+** | **50K+** |
+<a href="https://github.com/unn-Known1">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=unn-Known1&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=00D9FF&text_color=FFFFFF&langs_count=10" alt="Most used programming languages"/>
+</a>
 
 </div>
 
----
+### 🏆 Trophy Cabinet
+<div align="center">
+  <a href="https://github.com/unn-Known1">
+    <img src="https://github-profile-trophy.vercel.app/?username=unn-Known1&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" alt="GitHub achievement trophies for Gaurang Patel"/>
+  </a>
+</div>
 
-## 🛠️ Tech Stack & Skills
+### 📈 Contribution Activity Graph
+<div align="center">
+  <a href="https://github.com/unn-Known1">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=unn-Known1&bg_color=0D1117&color=00D9FF&line=00D9FF&point=FFFFFF&area=true&hide_border=true" alt="Daily contribution activity graph"/>
+  </a>
+</div>
 
-### Languages & Frameworks
-```
-TypeScript ◉ Python ◉ JavaScript ◉ Rust ◉ Shell ◉ HTML/CSS
-React ◉ Node.js ◉ Electron ◉ Three.js ◉ Next.js
-```
+### 🐍 Watch the Snake Eat My Commits
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/unn-Known1/unn-Known1/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/unn-Known1/unn-Known1/output/github-snake.svg" />
+    <img alt="Animated snake eating Gaurang's GitHub contribution squares" src="https://raw.githubusercontent.com/unn-Known1/unn-Known1/output/github-snake.svg" />
+  </picture>
+</div>
 
-### AI & Machine Learning
-```
-AI Agents ◉ LLM Integration ◉ Claude ◉ OpenAI ◉ NVIDIA AI
-Agent Orchestration ◉ Tool Calling ◉ RAG Systems
-```
-
-### Infrastructure & Cloud
-```
-Docker ◉ Linux ◉ WebRTC ◉ WebSocket ◉ VNC
-Cloudflare Tunnel ◉ Google Colab ◉ Service Management
-```
-
-### Tools & Platforms
-```
-Git ◉ GitHub Actions ◉ SQLite ◉ Stripe ◉ ESLint
-Prettier ◉ Zod ◉ Web Crypto API ◉ IndexedDB
-```
+> 💡 *Want the snake animation? Add the GitHub Action `Platane/snk` — workflow file is at the bottom of this README.*
 
 ---
 
-## 🔥 Featured Projects
+## 🚀 Featured Builds — Hand-Picked Hobby Projects
 
-### 🤖 AI & Agent Systems
+<table>
+<tr>
+<td width="50%" valign="top">
 
-#### [agenthq](https://github.com/unn-Known1/agenthq)
-*TypeScript • AI Agent Orchestration*
-> Command center for running entire businesses with AI agents. Built with TypeScript, features real-time SSE, tool execution, and multi-agent coordination.
+### 🤖 [agenthq](https://github.com/unn-Known1/agenthq)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![AI](https://img.shields.io/badge/-AI%20Agents-8E44AD?style=flat-square)
 
-```typescript
-// Example: Tool execution with streaming
+Command center for orchestrating **AI agents** like a tiny digital company. Real-time SSE, tool execution, multi-agent coordination.
+
+```ts
 const result = await agent.execute({
   tool: 'file_operations',
   params: { action: 'read', path: './data.json' },
@@ -126,161 +156,136 @@ const result = await agent.execute({
 });
 ```
 
-#### [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway)
-*Python • AI Gateway • Production*
-> Production-ready OpenAI-compatible proxy for NVIDIA AI. Features streaming, tool calls, CORS, rate limiting, and SQLite logging.
+</td>
+<td width="50%" valign="top">
+
+### ⚡ [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway)
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Production](https://img.shields.io/badge/-Production%20Ready-success?style=flat-square)
+
+OpenAI-compatible proxy for NVIDIA AI. Streaming, tool calls, CORS, rate limiting, SQLite logging — production-grade glue.
 
 ```
-⚡ Streaming      → Real-time AI responses
-🔒 Security       → Rate limiting + CORS protection
-📊 Logging        → SQLite persistence
-🔄 Tool Calls     → OpenAI-compatible API
+⚡ Streaming → 🔒 Rate-limited → 📊 Logged
 ```
 
-#### [ai-company-platform](https://github.com/unn-Known1/ai-company-platform)
-*JavaScript • Multi-Agent Platform*
-> AI-powered management platform with dashboard, missions, tickets, budgets, and organization management.
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
----
+### 🌐 [cloud-linux-gui](https://github.com/unn-Known1/cloud-linux-gui)
+![HTML](https://img.shields.io/badge/-HTML-E34F26?style=flat-square&logo=html5&logoColor=white)
+![Cloud](https://img.shields.io/badge/-Cloud-1E90FF?style=flat-square&logo=cloudflare&logoColor=white)
 
-### 🌐 Cloud & Infrastructure
-
-#### [cloud-linux-gui](https://github.com/unn-Known1/cloud-linux-gui)
-*HTML • Cloud Desktop*
-> Full Linux Desktop accessible from any browser. One-command installation with Cloudflare Tunnel integration.
+A full **Linux desktop in your browser** — one-command install with Cloudflare Tunnel. Run GUI apps anywhere.
 
 ```bash
-# One-command setup
 curl -sSL https://cloud-linux-gui | bash
 ```
 
-#### [colab-virtual-desktop](https://github.com/unn-Known1/colab-virtual-desktop)
-*Python • Remote Desktop*
-> Turn Google Colab into a remote desktop with VNC access. Perfect for running GUI applications in the cloud.
+</td>
+<td width="50%" valign="top">
 
-#### [linux-service-manager](https://github.com/unn-Known1/linux-service-manager)
-*Python • System Programming*
-> Educational Linux service manager demonstrating daemon patterns, process management, and system calls.
+### 🪐 [depth-os](https://github.com/unn-Known1/depth-os)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Three.js](https://img.shields.io/badge/-Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
 
----
+A **3D immersive desktop environment** built with React + Three.js. Because flat windows are so 2010.
 
-### 💻 Desktop & Terminal Applications
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-#### [depth-os](https://github.com/unn-Known1/depth-os)
-*TypeScript • 3D Desktop Environment*
-> A 3D immersive desktop environment built with React and Three.js. Next-gen UI with immersive visuals.
+### 🔐 [localdrop](https://github.com/unn-Known1/localdrop)
+![WebRTC](https://img.shields.io/badge/-WebRTC-333333?style=flat-square&logo=webrtc&logoColor=white)
+![P2P](https://img.shields.io/badge/-P2P-FF6B6B?style=flat-square)
 
-```
-🎮 3D Rendering Engine
-🎨 Immersive Visuals
-⌨️ Multi-Modal Interaction
-```
+E2E-encrypted **P2P file transfer** over your local network. No server, no install, just open and send.
 
-#### [mobile-terminal](https://github.com/unn-Known1/mobile-terminal)
-*JavaScript • Electron*
-> Full-featured Mobile Terminal with Electron desktop support. Cross-platform terminal emulator.
+</td>
+<td width="50%" valign="top">
 
-#### [hostpilot](https://github.com/unn-Known1/hostpilot)
-*JavaScript • Developer Tool*
-> Beautiful cross-platform GUI for managing hosts file. Point-and-click interface - no code required.
+### 📱 [mobile-terminal](https://github.com/unn-Known1/mobile-terminal)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
 
----
+A full-featured terminal that fits in your pocket. Cross-platform desktop + mobile.
 
-### 🔐 Security & File Transfer
-
-#### [localdrop](https://github.com/unn-Known1/localdrop)
-*TypeScript • P2P • WebRTC*
-> Secure, peer-to-peer file transfer between devices on your local network. Web-based, no installation required.
-
-```
-🔒 End-to-End Encrypted
-📡 P2P WebRTC
-🌐 No Server Required
-🔑 PIN Protection
-```
-
----
-
-### 📚 Documentation & Analysis
-
-#### [claude-code-leak-complete-guide](https://github.com/unn-Known1/claude-code-leak-complete-guide)
-*Rust • Documentation*
-> Complete technical analysis of Claude Code source code leak - 512,000+ lines exposed. Comprehensive documentation.
-
----
-
-## 📈 Contribution Activity
-
-```
-█████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Contributions this year
-```
-
-> 📌 Check out my GitHub profile for detailed contribution graphs and activity!
-
----
-
-## 🏆 Repository Highlights
+</td>
+</tr>
+</table>
 
 <p align="center">
-
-| ⭐ Top Projects | Description |
-|----------------|-------------|
-| [claude-code-leak-complete-guide](https://github.com/unn-Known1/claude-code-leak-complete-guide) | Complete technical analysis (512K+ lines) |
-| [cloud-linux-gui](https://github.com/unn-Known1/cloud-linux-gui) | Browser-based Linux desktop |
-| [localdrop](https://github.com/unn-Known1/localdrop) | P2P secure file transfer |
-| [mobile-terminal](https://github.com/unn-Known1/mobile-terminal) | Cross-platform terminal |
-| [minimax-agent-linux](https://github.com/unn-Known1/minimax-agent-linux) | Linux port of MiniMax Agent |
-| [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway) | Production AI gateway |
-
+  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/▶️%20See%20all%2043%2B%20repos-00D9FF?style=for-the-badge&logo=github&logoColor=white" alt="Browse all repositories"/></a>
 </p>
 
 ---
 
-## 💡 What I'm Working On
+## 🎯 Currently Tinkering With
+
+```diff
++ 🤖 Smarter multi-agent AI workflows (autonomous task graphs)
++ 🏭 Bridging Industry 4.0 simulation data with LLM reasoning
++ 🎮 3D / spatial UIs (depth-os v2)
++ 🔐 Privacy-first developer tools — local-first, P2P
+! 🧠 Learning Rust deeper, one segfault at a time
+- 🐛 Trying to keep my coffee:bug ratio above 3:1
+```
+
+---
+
+## ⚙️ The Mechanical × Code Manifesto
 
 <div align="center">
 
 ```
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║   🔭 AI Agent Orchestration     → Intelligent multi-agent    ║
-║   🌐 Cloud Infrastructure        → Scalable deployment        ║
-║   🎮 Immersive 3D Interfaces     → Next-gen desktop UX        ║
-║   🔐 Security-First Design       → Production-ready apps      ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
+   ┌──────────────┐         ┌──────────────┐         ┌──────────────┐
+   │   GEARS &    │  ───▶   │   LOGIC &    │  ───▶   │  AI AGENTS   │
+   │   BLUEPRINTS │         │   ALGORITHMS │         │  & SYSTEMS   │
+   └──────────────┘         └──────────────┘         └──────────────┘
+        🏭                       💻                        🤖
+   "If a CNC machine        "If you can plan a       "If you can debug
+    can be programmed,       production line,         a feedback loop,
+    so can a server."        you can plan code."      you can train an AI."
 ```
 
 </div>
 
+> Engineering doesn't stop at metal. The same problem-solving instincts that optimize a factory floor — **understand the system, eliminate waste, iterate, measure** — are the ones I bring to every line of code I ship. That's the *vibe* in vibe coding.
+
 ---
 
-## 🤝 Connect With Me
+## 🤝 Let's Build Something
 
 <p align="center">
-  <a href="https://github.com/unn-Known1">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
-  <a href="https://www.linkedin.com/in/gaurangpatel5/">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
+  <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Gaurang Patel on LinkedIn"/></a>
+  <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Gaurang Patel on GitHub"/></a>
+  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-00D9FF?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
 </p>
+
+<p align="center"><i>Open to collaborations on AI agents, developer tools, manufacturing-tech, or any wild idea you want to vibe-build with a mechanical engineer who codes for fun.</i></p>
 
 ---
 
+<!-- ============== RANDOM DEV QUOTE (auto-updates) ============== -->
 <div align="center">
-
-```markdown
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  "Code is poetry, and I write novels."                     ┃
-┃                                                          ┃
-┃  💬 Open for collaboration on AI, cloud, and developer    ┃
-┃     tools projects. Always learning, always building.     ┃
-┃                                                          ┃
-┃  ⚡ Fun fact: I turn coffee into code and bug reports.    ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-```
-
-**⭐ From this profile's README with ❤️**
-
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random developer quote of the day"/>
 </div>
+
+<!-- ============== FOOTER WAVE ============== -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,2,5,30&height=120&section=footer" alt="Decorative wave footer"/>
+
+<p align="center">
+  <sub>⚡ Crafted with <code>vibes</code>, debugged with <code>☕</code>, and shipped on weekends. — © Gaurang Patel</sub>
+</p>
+
+<!--
+SEO META — Keywords (helps GitHub & Google index this page):
+Gaurang Patel, Mechanical Engineer Germany, Manufacturing Engineer Zwickau,
+Tecnomatix Plant Simulation, MES, Industry 4.0, AI Agents Developer,
+Vibe Coder, Self-Taught Developer, TypeScript, Python, Rust, React,
+Three.js, Electron, Open Source, Mechanical Engineer who codes,
+AI hobbyist, NVIDIA AI Gateway, Claude AI, OpenAI, Multi-Agent Systems
+-->
