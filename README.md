@@ -182,11 +182,11 @@ curl -sSL https://cloud-linux-gui | bash
 </td>
 <td width="50%" valign="top">
 
-### 🪐 [depth-os](https://github.com/unn-Known1/depth-os)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Three.js](https://img.shields.io/badge/-Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
+### 📱 [mobile-terminal](https://github.com/unn-Known1/mobile-terminal)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
 
-A **3D immersive desktop environment** built with React + Three.js. Because flat windows are so 2010.
+A full-featured terminal that fits in your pocket. Cross-platform desktop + mobile.
 
 </td>
 </tr>
@@ -200,15 +200,10 @@ A **3D immersive desktop environment** built with React + Three.js. Because flat
 E2E-encrypted **P2P file transfer** over your local network. No server, no install, just open and send.
 
 </td>
-<td width="50%" valign="top">
 
-### 📱 [mobile-terminal](https://github.com/unn-Known1/mobile-terminal)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
 
-A full-featured terminal that fits in your pocket. Cross-platform desktop + mobile.
 
-</td>
+
 </tr>
 </table>
 
