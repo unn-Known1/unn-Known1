@@ -271,8 +271,9 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 <p align="center">
   <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Gaurang Patel on LinkedIn"/></a>
   <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Gaurang Patel on GitHub"/></a>
-  <a href="https://github.com/unn-Known1/OpenRuflo"><img src="https://img.shields.io/badge/OpenRuflo-00D9FF?style=for-the-badge&logo=opencodeai&logoColor=white" alt="OpenRuflo on GitHub"/></a>
-  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-00D9FF?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
+  <a href="https://github.com/unn-Known1/OpenRuflo"><img src="https://img.shields.io/badge/OpenRuflo-0077B5?style=for-the-badge&logo=opencodeai&logoColor=white" alt="OpenRuflo on GitHub"/></a>
+  <a href="https://github.com/unn-Known1/webterm"><img src="https://img.shields.io/badge/WebTerm-181717?style=for-the-badge&logo=opencodeai&logoColor=white" alt="WebTerm on GitHub"/></a>
+  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-0077B5?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
 </p>
 
 <p align="center"><i>Open to collaborations on AI agents, OpenCode AI, developer tools, manufacturing-tech, or any wild idea you want to vibe-build with a mechanical engineer who codes for fun.</i></p>
