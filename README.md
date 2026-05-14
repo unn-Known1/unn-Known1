@@ -148,14 +148,6 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 ```bash
 curl -fsSL https://cdn.jsdelivr.net/gh/unn-Known1/OpenRuflo@main/scripts/install.sh | bash
 ```
-
-**Features:**
-- 60+ specialized agents in coordinated swarms
-- Self-learning and fault-tolerant consensus
-- Vector memory with RuVector intelligence
-- MCP (Model Context Protocol) integration
-- OpenCode AI native support (agents, skills, plugins)
-
 </td>
 <td width="50%" valign="top">
 
