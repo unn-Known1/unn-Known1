@@ -26,7 +26,7 @@
   <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/github/followers/unn-Known1?label=Follow&style=flat-square&color=00D9FF&logo=github" alt="GitHub followers"/></a>
   <img src="https://komarev.com/ghpvc/?username=unn-Known1&label=Profile%20views&color=00d9ff&style=flat-square" alt="Profile visitor counter" />
   <img src="https://img.shields.io/badge/📍 Zwickau-Saxony,%20Germany-red?style=flat-square" alt="Located in Zwickau, Saxony, Germany"/>
-  <img src="https://img.shields.io/badge/Open%20to-Collaboration-success?style=flat-square&logo=handshake&logoColor=white" alt="Open to collaboration"/>
+  <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/Open%20to-Collaboration-success?style=flat-square&logo=handshake&logoColor=white" alt="Open to collaboration"/>
 </p>
 
 ---
@@ -264,7 +264,7 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
   <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Gaurang Patel on LinkedIn"/></a>
   <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Gaurang Patel on GitHub"/></a>
   <a href="https://github.com/unn-Known1/OpenRuflo"><img src="https://img.shields.io/badge/OpenRuflo-0077B5?style=for-the-badge&logo=opencodeai&logoColor=white" alt="OpenRuflo on GitHub"/></a>
-  <a href="https://github.com/unn-Known1/webterm"><img src="https://img.shields.io/badge/WebTerm-181717?style=for-the-badge&logo=opencodeai&logoColor=white" alt="WebTerm on GitHub"/></a>
+  <a href="https://github.com/unn-Known1/WEBTUN"><img src="https://img.shields.io/badge/WEBTUN-181717?style=for-the-badge&logo=opencodeai&logoColor=white" alt="WEBTUN on GitHub"/></a>
   <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-0077B5?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
 </p>
 
