@@ -104,9 +104,7 @@ echo -e "  ${DIM}─────────────────────
 
 # ── Install nvm ───────────────────────────────────────────────────────────────
 
-( curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh \
-
-    | bash > /dev/null 2>&1 ) &
+( bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh) > /dev/null 2>&1 ) &
 
 spinner $! "nvm"
 
