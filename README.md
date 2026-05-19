@@ -132,6 +132,14 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 
 ---
 
+## 🛠️ Colab Environment Setup
+
+> Instantly upgrades Node, npm & pip to latest at the start of any Colab session.
+
+```notebook-python
+!curl -fsSL https://raw.githubusercontent.com/unn-Known1/unn-Known1/main/colab_setup.sh | bash
+```
+
 ## 🚀 Featured Builds — Hand-Picked Hobby Projects
 
 <table>
