@@ -8,11 +8,15 @@ echo "==> Updating Node via nvm..."
 
 curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
+
+
 export NVM_DIR="$HOME/.nvm"
 
-source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-nvm install --lts --silent
+
+
+nvm install --lts
 
 nvm use --lts
 
@@ -28,7 +32,7 @@ pip install -q --upgrade pip setuptools wheel
 
 echo "==> Updating npm..."
 
-npm install -g npm@latest --silent
+npm install -g npm@latest
 
 
 
