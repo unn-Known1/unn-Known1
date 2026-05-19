@@ -22,7 +22,7 @@ spinner() {
     i=$(( (i+1) % ${#frames[@]} ))
     sleep 0.1
   done
-  printf "\r  ${GRN}▸▸▸${R}  ${WHT}%-14s${R}${GRN} done${R}              \n" "$label"
+  printf "\r  ${GRN}▸▸▸${R}  ${GRAY}%-14s${R}${GRN} done${R}              \n" "$label"
 }
 
 # ── Banner ────────────────────────────────────────────────────────────────────
