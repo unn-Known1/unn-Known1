@@ -39,10 +39,10 @@ py_b=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
 pip_b=$(pip --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
 
 echo -e "  ${DIM}╔═══════════════════ before ═════╗${R}"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}   ║${R}\n" "node"   "$node_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}   ║${R}\n" "npm"    "$npm_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}   ║${R}\n" "python" "$py_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}   ║${R}\n" "pip"    "$pip_b"
+printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "node"   "$node_b"
+printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "npm"    "$npm_b"
+printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "python" "$py_b"
+printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "pip"    "$pip_b"
 echo -e "  ${DIM}╚════════════════════════════════╝${R}"
 echo ""
 echo -e "  ${DIM}────────────────────────────────────────${R}"
@@ -80,10 +80,10 @@ py_a=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
 pip_a=$(pip --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
 
 echo -e "  ${CYAN}╔═══════════════════ after  ═════╗${R}"
-printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}   ║${R}\n" "node"   "$node_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}   ║${R}\n" "npm"    "$npm_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}   ║${R}\n" "python" "$py_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}   ║${R}\n" "pip"    "$pip_a"
+printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}    ║${R}\n" "node"   "$node_a"
+printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}    ║${R}\n" "npm"    "$npm_a"
+printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}    ║${R}\n" "python" "$py_a"
+printf "  ${CYAN}║${R}  ${GRAY}%-8s${R}  ${GRN}%-16s${R}${CYAN}    ║${R}\n" "pip"    "$pip_a"
 echo -e "  ${CYAN}╚════════════════════════════════╝${R}"
 echo ""
 echo -e "  ${PURP}◈${R}  ${WHT}${BOLD}ready.${R}"
