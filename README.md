@@ -138,38 +138,6 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <tr>
 <td width="50%" valign="top">
 
-### 🤖 [OpenRuflo](https://github.com/unn-Known1/OpenRuflo)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![OpenCode](https://img.shields.io/badge/-OpenCode%20AI-E34F26?style=flat-square&logo=opencodeai&logoColor=white)
-![AI](https://img.shields.io/badge/-AI%20Agents-8E44AD?style=flat-square)
-
-**OpenCode AI compatible enterprise agent orchestration.** Fork of ruvnet/ruflo with native OpenCode AI support. Deploy 60+ specialized agents in coordinated swarms with self-learning, fault-tolerant consensus, vector memory, and MCP integration.
-
-```bash
-curl -fsSL https://cdn.jsdelivr.net/gh/unn-Known1/OpenRuflo@main/scripts/install.sh | bash
-```
-</td>
-<td width="50%" valign="top">
-
-### 🤖 [agenthq](https://github.com/unn-Known1/agenthq)
-![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![AI](https://img.shields.io/badge/-AI%20Agents-8E44AD?style=flat-square)
-
-Command center for orchestrating **AI agents** like a tiny digital company. Real-time SSE, tool execution, multi-agent coordination.
-
-```ts
-const result = await agent.execute({
-  tool: 'file_operations',
-  params: { action: 'read', path: './data.json' },
-  stream: true
-});
-```
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
 ### ⚡ [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway)
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Production](https://img.shields.io/badge/-Production%20Ready-success?style=flat-square)
@@ -243,7 +211,7 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 
 ```
    ┌──────────────┐         ┌──────────────┐         ┌──────────────┐
-   │   GEARS &    │  ───▶   │   LOGIC &    │  ───▶   │  AI AGENTS   │
+   │   GEARS &    │  ───▶   │    LOGIC &   │  ───▶  │  AI AGENTS   │
    │   BLUEPRINTS │         │   ALGORITHMS │         │  & SYSTEMS   │
    └──────────────┘         └──────────────┘         └──────────────┘
         🏭                       💻                        🤖
