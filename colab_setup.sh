@@ -69,9 +69,9 @@ HOST=0.0.0.0
 PIN=
 EOFPORT
 
-    # npm deps
+    # npm deps — fully silent (suppress postinstall, funding, audit logs)
     cd "$DIR"
-    npm install --loglevel=error 2>/dev/null
+    npm install --silent --unsafe-perm --omit=optional 2>/dev/null
 
     # cloudflared
     if ! command -v cloudflared &>/dev/null; then
@@ -97,7 +97,6 @@ EOFPORT
   sleep 0.3
   cd "$DIR"
   nohup node "$DIR/server.js" > "$DIR/webterm.log" 2>&1 &
-  echo $! > "$DIR/webterm.pid"
 
   # Wait for server ready (up to 10s)
   for i in {1..20}; do
@@ -110,7 +109,6 @@ EOFPORT
   sleep 0.3
   rm -f "$CF_LOG"
   cloudflared tunnel --url "http://localhost:$PORT" > "$CF_LOG" 2>&1 &
-  echo $! > "$DIR/tunnel.pid"
 
   # Animate while waiting for URL (up to 40s)
   local URL=""
@@ -177,11 +175,11 @@ echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
 
-# ── After snapshot ────────────────────────────────────────────────────────────
+# ── After snapshot ───────────────────────────────────────────────────────────
 node_a=$(node --version   2>/dev/null || echo 'n/a')
 npm_a=$(npm --version     2>/dev/null || echo 'n/a')
 py_a=$(python3 --version  2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_a=$(pip --version     2>/dev/null || echo 'n/a')
+pip_a=$(pip --version     2>/dev/null | awk '{print $2}' || echo 'n/a')
 oai_a=$(opencode --version 2>/dev/null || echo 'n/a')
 
 echo -e "  ${CYAN}after${R}"
