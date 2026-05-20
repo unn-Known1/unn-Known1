@@ -174,7 +174,7 @@ curl -sSL https://cloud-linux-gui | bash
 <tr>
 <td width="50%" valign="top">
 
-### 📱 [mobile-terminal](https://github.com/unn-Known1/mobile-terminal)
+### 📱 [Web-terminal](https://github.com/unn-Known1/webtun)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
 
@@ -202,7 +202,6 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 ## 🎯 Currently Tinkering With
 
 ```diff
-+ 🤖 OpenRuflo — OpenCode AI compatible agent orchestration
 + 🤖 Smarter multi-agent AI workflows (autonomous task graphs)
 + 🏭 Bridging Industry 4.0 simulation data with LLM reasoning
 + 🎮 3D / spatial UIs (depth-os v2)
