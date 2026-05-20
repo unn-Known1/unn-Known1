@@ -1,111 +1,103 @@
 #!/bin/bash
-# ── Colors ───────────────────────────────────────────────────────────────────
+# ── Colors — theme-safe (Colab light & dark) ─────────────────────────────────
 R='\033[0m'
-CYAN='\033[38;5;51m'
-BLUE='\033[38;5;39m'
-PURP='\033[38;5;141m'
-GRN='\033[38;5;82m'
-YLW='\033[38;5;220m'
-GRAY='\033[38;5;240m'
-WHT='\033[38;5;255m'
-DIM='\033[38;5;238m'
 BOLD='\033[1m'
+CYAN='\033[38;5;38m'
+PURP='\033[38;5;135m'
+GRN='\033[38;5;70m'
+YLW='\033[38;5;178m'
+GRAY='\033[38;5;243m'
 
-# ── Spinner ───────────────────────────────────────────────────────────────────
-spinner() {
-  local pid=$1 label=$2
-  local frames=('·  ' '·· ' '···' ' ··' '  ·' '   ')
-  local cols=("$CYAN" "$BLUE" "$PURP" "$CYAN" "$BLUE" "$PURP")
-  local i=0
+TOTAL=6
+DONE=0
+
+# ── Progress bar renderer ─────────────────────────────────────────────────────
+bar_line() {
+  local label="$1" state="$2" tick="${3:-0}"
+  local W=24 bar="" i
+  local filled=$(( DONE * W / TOTAL ))
+  local empty=$(( W - filled ))
+  for ((i=0; i<filled; i++)); do bar+="▓"; done
+  for ((i=0; i<empty;  i++)); do bar+="░"; done
+  if [[ "$state" == "done" ]]; then
+    printf "  ${GRN}✓${R}  ${GRAY}%-14s${R}  ${GRN}done${R}\n" "$label"
+  else
+    local sp=('·  ' '·· ' '···' ' ··' '  ·' '   ')
+    printf "\r  ${CYAN}[${bar}]${R}  ${GRAY}%d/%d${R}  ${CYAN}${sp[$((tick%6))]}${R}  %-14s" \
+           "$DONE" "$TOTAL" "$label"
+  fi
+}
+
+# ── Run a step with animated bar ─────────────────────────────────────────────
+run_step() {
+  local label="$1"; shift
+  local tick=0
+  bar_line "$label" running 0
+  ("$@" >/dev/null 2>&1) &
+  local pid=$!
   while kill -0 "$pid" 2>/dev/null; do
-    printf "\r  ${cols[i]}${frames[i]}${R}  ${WHT}%-16s${R}${GRAY} installing...${R}" "$label"
-    i=$(( (i+1) % ${#frames[@]} ))
+    bar_line "$label" running $tick
+    tick=$(( tick + 1 ))
     sleep 0.1
   done
-  printf "\r  ${GRN}▸▸▸${R}  ${GRAY}%-16s${R}${GRN} done${R}              \n" "$label"
+  DONE=$(( DONE + 1 ))
+  bar_line "$label" done
 }
+
+# ── Wrappers for process-substitution installs ───────────────────────────────
+_install_nvm()    { bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh); }
+_install_webtun() { bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)"; }
 
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
-echo -e "  ${PURP}${BOLD}┌───────────────────────────────────┐${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                  ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${DIM}node  npm  python  pip${R}           ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}└───────────────────────────────────┘${R}"
+echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                           ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · opencode · webtun${R}      ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
 echo ""
+
 # ── Before snapshot ───────────────────────────────────────────────────────────
-node_b=$(node --version 2>/dev/null || echo 'n/a')
-npm_b=$(npm --version 2>/dev/null || echo 'n/a')
-py_b=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_b=$(pip --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
+node_b=$(node --version   2>/dev/null || echo 'n/a')
+npm_b=$(npm --version     2>/dev/null || echo 'n/a')
+py_b=$(python3 --version  2>/dev/null | awk '{print $2}' || echo 'n/a')
+pip_b=$(pip --version     2>/dev/null | awk '{print $2}' || echo 'n/a')
 
-echo -e "  ${DIM}╔═══════════════════ before ═════╗${R}"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "node"   "$node_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "npm"    "$npm_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "python" "$py_b"
-printf "  ${DIM}║${R}  ${GRAY}%-8s${R}  ${YLW}%-16s${R}${DIM}    ║${R}\n" "pip"    "$pip_b"
-echo -e "  ${DIM}╚════════════════════════════════╝${R}"
+echo -e "  ${GRAY}before${R}"
+printf   "  ${GRAY}  node   %-12s npm    %-12s${R}\n" "$node_b" "$npm_b"
+printf   "  ${GRAY}  python %-12s pip    %-12s${R}\n" "$py_b"   "$pip_b"
 echo ""
-echo -e "  ${DIM}────────────────────────────────────────${R}"
+echo -e  "  ${GRAY}────────────────────────────────────────${R}"
+echo ""
 
-# ── Install nvm ───────────────────────────────────────────────────────────────
-( bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh) > /dev/null 2>&1 ) &
-spinner $! "nvm"
+# ── Installs ──────────────────────────────────────────────────────────────────
+run_step "nvm"          _install_nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# ── Install Node LTS ──────────────────────────────────────────────────────────
-( nvm install --lts > /dev/null 2>&1 ) &
-spinner $! "node LTS"
-nvm use --lts > /dev/null 2>&1
-nvm alias default 'lts/*' > /dev/null 2>&1
+run_step "node LTS"     nvm install --lts
+nvm use --lts >/dev/null 2>&1
+nvm alias default 'lts/*' >/dev/null 2>&1
 
-# ── Update npm ────────────────────────────────────────────────────────────────
-( npm install -g npm@latest > /dev/null 2>&1 ) &
-spinner $! "npm"
+run_step "npm"          npm install -g npm@latest
+run_step "opencode-ai"  npm install -g opencode-ai
+run_step "pip + tools"  pip install -q --upgrade pip setuptools wheel
+run_step "webtun"       _install_webtun
 
-# ── Install opencode-ai ───────────────────────────────────────────────────────
-( npm install -g opencode-ai > /dev/null 2>&1 ) &
-spinner $! "opencode-ai"
-
-# ── Update pip ────────────────────────────────────────────────────────────────
-( pip install -q --upgrade pip setuptools wheel > /dev/null 2>&1 ) &
-spinner $! "pip + tools"
-
-echo -e "  ${DIM}────────────────────────────────────────${R}"
+echo ""
+echo -e "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
 
 # ── After snapshot ────────────────────────────────────────────────────────────
-node_a=$(node --version 2>/dev/null || echo 'n/a')
-npm_a=$(npm --version 2>/dev/null || echo 'n/a')
-py_a=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_a=$(pip --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
+node_a=$(node --version   2>/dev/null || echo 'n/a')
+npm_a=$(npm --version     2>/dev/null || echo 'n/a')
+py_a=$(python3 --version  2>/dev/null | awk '{print $2}' || echo 'n/a')
+pip_a=$(pip --version     2>/dev/null | awk '{print $2}' || echo 'n/a')
 oai_a=$(opencode --version 2>/dev/null || echo 'n/a')
 
-echo -e "  ${CYAN}╔═══════════════════ after  ═════╗${R}"
-printf "  ${CYAN}║${R}  ${GRAY}%-10s${R}  ${GRN}%-16s${R}${CYAN}  ║${R}\n" "node"       "$node_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-10s${R}  ${GRN}%-16s${R}${CYAN}  ║${R}\n" "npm"        "$npm_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-10s${R}  ${GRN}%-16s${R}${CYAN}  ║${R}\n" "python"     "$py_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-10s${R}  ${GRN}%-16s${R}${CYAN}  ║${R}\n" "pip"        "$pip_a"
-printf "  ${CYAN}║${R}  ${GRAY}%-10s${R}  ${GRN}%-16s${R}${CYAN}  ║${R}\n" "opencode"   "$oai_a"
-echo -e "  ${CYAN}╚════════════════════════════════╝${R}"
+echo -e "  ${CYAN}after${R}"
+printf   "  ${GRAY}  node   ${R}${GRN}%-12s${R}${GRAY} npm    ${R}${GRN}%-12s${R}\n" "$node_a" "$npm_a"
+printf   "  ${GRAY}  python ${R}${GRN}%-12s${R}${GRAY} pip    ${R}${GRN}%-12s${R}\n" "$py_a"   "$pip_a"
+printf   "  ${GRAY}  opencode ${R}${GRN}%-12s${R}\n"                                 "$oai_a"
 echo ""
-
-# ── Optional: webtun ─────────────────────────────────────────────────────────
-echo -e "  ${PURP}◈${R}  ${WHT}${BOLD}Optional:${R}  ${GRAY}install webtun tunnel?${R}"
-echo -e "  ${DIM}  run this to install:${R}"
-echo ""
-echo -e "  ${YLW}  bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)\"${R}"
-echo ""
-printf "  ${WHT}Install webtun now? [y/N]:${R} "
-read -r webtun_ans < /dev/tty
-if [[ "$webtun_ans" =~ ^[Yy]$ ]]; then
-  echo ""
-  ( bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)" > /dev/null 2>&1 ) &
-  spinner $! "webtun"
-else
-  echo -e "\n  ${GRAY}skipped webtun.${R}"
-fi
-
-echo ""
-echo -e "  ${PURP}◈${R}  ${GRAY}${BOLD}ready.${R}"
+echo -e  "  ${PURP}◈${R}  ${BOLD}ready.${R}"
 echo ""
