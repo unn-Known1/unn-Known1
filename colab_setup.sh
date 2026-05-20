@@ -42,8 +42,7 @@ run_webtun() {
 
   # npm install — fully suppressed
   cd "$DIR"
-  npm install --loglevel=silent --ignore-scripts 2>/dev/null || \
-  npm install --loglevel=silent 2>/dev/null || true
+  npm install --loglevel=silent >/dev/null 2>&1 || true
 
   # cloudflared
   if ! command -v cloudflared &>/dev/null; then
@@ -96,8 +95,8 @@ run_webtun() {
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
 echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
-echo -e "  ${PURP}${BOLD}│${R}${CYAN}${BOLD}COLAB ENV SETUP${R}                           ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}${GRAY}nvm · node · npm · opencode · webtun${R}      ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                           ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · opencode · webtun${R}      ${PURP}${BOLD}│${R}"
 echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
 echo ""
 
@@ -125,6 +124,11 @@ nvm alias default 'lts/*' >/dev/null 2>&1
 
 run_step "npm"         npm install -g npm@latest
 run_step "opencode-ai" npm install -g opencode-ai
+# ensure opencode is reachable regardless of nvm path state
+OPENCODE_BIN=$(find "$NVM_DIR" -name "opencode" -type f 2>/dev/null | head -1)
+if [ -n "$OPENCODE_BIN" ]; then
+  ln -sf "$OPENCODE_BIN" /usr/local/bin/opencode 2>/dev/null ||   ln -sf "$OPENCODE_BIN" "$HOME/.local/bin/opencode" 2>/dev/null || true
+fi
 run_step "pip + tools" pip install -q --upgrade pip setuptools wheel
 
 echo ""
