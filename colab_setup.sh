@@ -11,19 +11,14 @@ GRAY='\033[38;5;243m'
 TOTAL=6
 DONE=0
 
-# ── Progress bar renderer ─────────────────────────────────────────────────────
+# ── Step counter renderer ─────────────────────────────────────────────────────
 bar_line() {
   local label="$1" state="$2" tick="${3:-0}"
-  local W=24 bar="" i
-  local filled=$(( DONE * W / TOTAL ))
-  local empty=$(( W - filled ))
-  for ((i=0; i<filled; i++)); do bar+="▓"; done
-  for ((i=0; i<empty;  i++)); do bar+="░"; done
   if [[ "$state" == "done" ]]; then
-    printf "  ${GRN}✓${R}  ${GRAY}%-14s${R}  ${GRN}done${R}\n" "$label"
+    printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}done${R}\n" "$DONE" "$TOTAL" "$label"
   else
     local sp=('·  ' '·· ' '···' ' ··' '  ·' '   ')
-    printf "\r  ${CYAN}[${bar}]${R}  ${GRAY}%d/%d${R}  ${CYAN}${sp[$((tick%6))]}${R}  %-14s" \
+    printf "\r  ${CYAN}${sp[$((tick%6))]}${R}  ${GRAY}%d/%d${R}  %-18s" \
            "$DONE" "$TOTAL" "$label"
   fi
 }
@@ -44,15 +39,102 @@ run_step() {
   bar_line "$label" done
 }
 
-# ── Wrappers for process-substitution installs ───────────────────────────────
-_install_nvm()    { bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh); }
-_install_webtun() { bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)"; }
+# ── nvm install wrapper ───────────────────────────────────────────────────────
+_install_nvm() { bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh); }
+
+# ── webtun: clone + deps + server + tunnel → capture URL ─────────────────────
+run_webtun() {
+  local PORT=3000
+  local DIR="$HOME/webtun"
+  local CF_LOG="/tmp/cf_tunnel.log"
+  local tick=0
+
+  bar_line "webtun  install" running 0
+
+  # ── Phase 1: clone + npm install + cloudflared ──────────────────────────────
+  (
+    # Clone or update
+    if [ -d "$DIR" ]; then
+      git -C "$DIR" pull -q 2>/dev/null || true
+    else
+      git clone -q https://github.com/unn-Known1/webtun.git "$DIR" 2>/dev/null
+    fi
+
+    # Write .env — bypasses all interactive prompts in setup.sh
+    cat > "$DIR/.env" << EOF
+PORT=$PORT
+HOST=0.0.0.0
+PIN=
+EOF
+
+    # npm deps
+    cd "$DIR"
+    npm install --loglevel=error 2>/dev/null
+
+    # cloudflared
+    if ! command -v cloudflared &>/dev/null; then
+      curl -fsSL \
+        "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64" \
+        -o /tmp/cloudflared 2>/dev/null
+      chmod +x /tmp/cloudflared
+      sudo mv /tmp/cloudflared /usr/local/bin/cloudflared 2>/dev/null \
+        || mv /tmp/cloudflared "$HOME/.local/bin/cloudflared" 2>/dev/null || true
+    fi
+  ) &
+  local pid=$!
+  while kill -0 "$pid" 2>/dev/null; do
+    bar_line "webtun  install" running $tick
+    tick=$(( tick + 1 ))
+    sleep 0.1
+  done
+  bar_line "webtun  install" done
+  DONE=$(( DONE + 1 ))
+
+  # ── Phase 2: start server ───────────────────────────────────────────────────
+  pkill -f "node.*server.js" 2>/dev/null || true
+  sleep 0.3
+  cd "$DIR"
+  nohup node "$DIR/server.js" > "$DIR/webterm.log" 2>&1 &
+  echo $! > "$DIR/webterm.pid"
+
+  # Wait for server ready (up to 10s)
+  for i in {1..20}; do
+    sleep 0.5
+    curl -sf "http://localhost:$PORT/api/auth/required" &>/dev/null && break
+  done
+
+  # ── Phase 3: start tunnel + capture URL ────────────────────────────────────
+  pkill -f "cloudflared tunnel" 2>/dev/null || true
+  sleep 0.3
+  rm -f "$CF_LOG"
+  cloudflared tunnel --url "http://localhost:$PORT" > "$CF_LOG" 2>&1 &
+  echo $! > "$DIR/tunnel.pid"
+
+  # Animate while waiting for URL (up to 40s)
+  local URL=""
+  tick=0
+  printf "  ${CYAN}[${R}${GRAY}waiting for tunnel url${R}${CYAN}]${R}\n"
+  for i in {1..40}; do
+    sleep 1
+    URL=$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' "$CF_LOG" 2>/dev/null | head -1)
+    [ -n "$URL" ] && break
+    printf "\r  ${CYAN}·${R}  ${GRAY}tunnel starting%-*s${R}" $(( i % 4 )) "..."
+  done
+
+  # Print result
+  printf "\r%-50s\r" " "   # clear line
+  if [ -n "$URL" ]; then
+    echo -e "  ${GRN}✓${R}  ${GRAY}tunnel${R}  ${GRN}${BOLD}$URL${R}"
+  else
+    echo -e "  ${YLW}⚠${R}  ${GRAY}tunnel URL not found — check ${R}${CYAN}$CF_LOG${R}"
+  fi
+}
 
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
 echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                           ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · opencode · webtun${R}      ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}${CYAN}${BOLD}COLAB ENV SETUP${R}                           ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}${GRAY}nvm · node · npm · opencode · webtun${R}      ${PURP}${BOLD}│${R}"
 echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
 echo ""
 
@@ -81,10 +163,15 @@ nvm alias default 'lts/*' >/dev/null 2>&1
 run_step "npm"          npm install -g npm@latest
 run_step "opencode-ai"  npm install -g opencode-ai
 run_step "pip + tools"  pip install -q --upgrade pip setuptools wheel
-run_step "webtun"       _install_webtun
 
 echo ""
-echo -e "  ${GRAY}────────────────────────────────────────${R}"
+echo -e  "  ${GRAY}────────────────────────────────────────${R}"
+echo ""
+
+run_webtun
+
+echo ""
+echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
 
 # ── After snapshot ────────────────────────────────────────────────────────────
@@ -97,7 +184,7 @@ oai_a=$(opencode --version 2>/dev/null || echo 'n/a')
 echo -e "  ${CYAN}after${R}"
 printf   "  ${GRAY}  node   ${R}${GRN}%-12s${R}${GRAY} npm    ${R}${GRN}%-12s${R}\n" "$node_a" "$npm_a"
 printf   "  ${GRAY}  python ${R}${GRN}%-12s${R}${GRAY} pip    ${R}${GRN}%-12s${R}\n" "$py_a"   "$pip_a"
-printf   "  ${GRAY}  opencode ${R}${GRN}%-12s${R}\n"                                 "$oai_a"
+printf   "  ${GRAY}  opencode${R} ${GRN}%-12s${R}\n"                                 "$oai_a"
 echo ""
 echo -e  "  ${PURP}◈${R}  ${BOLD}ready.${R}"
 echo ""
