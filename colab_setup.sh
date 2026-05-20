@@ -11,89 +11,56 @@ GRAY='\033[38;5;243m'
 TOTAL=6
 DONE=0
 
-# ── Step counter renderer ─────────────────────────────────────────────────────
-bar_line() {
-  local label="$1" state="$2" tick="${3:-0}"
-  if [[ "$state" == "done" ]]; then
-    printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}done${R}\n" "$DONE" "$TOTAL" "$label"
-  else
-    local sp=('·  ' '·· ' '···' ' ··' '  ·' '   ')
-    printf "\r  ${CYAN}${sp[$((tick%6))]}${R}  ${GRAY}%d/%d${R}  %-18s" \
-           "$DONE" "$TOTAL" "$label"
-  fi
-}
-
-# ── Run a step with animated bar ─────────────────────────────────────────────
+# ── Run a step — synchronous, one line output ─────────────────────────────────
 run_step() {
   local label="$1"; shift
-  local tick=0
-  bar_line "$label" running 0
-  ("$@" >/dev/null 2>&1) &
-  local pid=$!
-  while kill -0 "$pid" 2>/dev/null; do
-    bar_line "$label" running $tick
-    tick=$(( tick + 1 ))
-    sleep 0.1
-  done
+  "$@" >/dev/null 2>&1
   DONE=$(( DONE + 1 ))
-  bar_line "$label" done
+  printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}done${R}\n" "$DONE" "$TOTAL" "$label"
 }
 
-# ── nvm install wrapper ───────────────────────────────────────────────────────
+# ── nvm wrapper ───────────────────────────────────────────────────────────────
 _install_nvm() { bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh); }
 
-# ── webtun: clone + deps + server + tunnel → capture URL ─────────────────────
+# ── webtun: clone + deps + server + tunnel → print URL ───────────────────────
 run_webtun() {
   local PORT=3000
   local DIR="$HOME/webtun"
   local CF_LOG="/tmp/cf_tunnel.log"
-  local tick=0
 
-  bar_line "webtun  install" running 0
+  printf "  ${GRAY}·  %d/%d${R}  %-18s  ${GRAY}installing...${R}\n" "$DONE" "$TOTAL" "webtun"
 
-  # ── Phase 1: clone + npm install + cloudflared ──────────────────────────────
-  (
-    # Clone or update
-    if [ -d "$DIR" ]; then
-      git -C "$DIR" pull -q 2>/dev/null || true
-    else
-      git clone -q https://github.com/unn-Known1/webtun.git "$DIR" 2>/dev/null
-    fi
+  # Clone or update
+  if [ -d "$DIR" ]; then
+    git -C "$DIR" pull -q 2>/dev/null || true
+  else
+    git clone -q https://github.com/unn-Known1/webtun.git "$DIR" 2>/dev/null
+  fi
 
-    # Write .env — bypasses all interactive prompts in setup.sh
-    cat > "$DIR/.env" << EOF
-PORT=$PORT
-HOST=0.0.0.0
-PIN=
-EOF
+  # Write .env — skips all interactive prompts
+  printf "PORT=%s\nHOST=0.0.0.0\nPIN=\n" "$PORT" > "$DIR/.env"
 
-    # npm deps
-    cd "$DIR"
-    npm install --loglevel=error 2>/dev/null
+  # npm install — fully suppressed
+  cd "$DIR"
+  npm install --loglevel=silent --ignore-scripts 2>/dev/null || \
+  npm install --loglevel=silent 2>/dev/null || true
 
-    # cloudflared
-    if ! command -v cloudflared &>/dev/null; then
-      curl -fsSL \
-        "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64" \
-        -o /tmp/cloudflared 2>/dev/null
-      chmod +x /tmp/cloudflared
-      sudo mv /tmp/cloudflared /usr/local/bin/cloudflared 2>/dev/null \
-        || mv /tmp/cloudflared "$HOME/.local/bin/cloudflared" 2>/dev/null || true
-    fi
-  ) &
-  local pid=$!
-  while kill -0 "$pid" 2>/dev/null; do
-    bar_line "webtun  install" running $tick
-    tick=$(( tick + 1 ))
-    sleep 0.1
-  done
-  bar_line "webtun  install" done
+  # cloudflared
+  if ! command -v cloudflared &>/dev/null; then
+    curl -fsSL \
+      "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64" \
+      -o /tmp/cloudflared 2>/dev/null
+    chmod +x /tmp/cloudflared
+    sudo mv /tmp/cloudflared /usr/local/bin/cloudflared 2>/dev/null || \
+      mv /tmp/cloudflared "$HOME/.local/bin/cloudflared" 2>/dev/null || true
+  fi
+
   DONE=$(( DONE + 1 ))
+  printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}done${R}\n" "$DONE" "$TOTAL" "webtun"
 
-  # ── Phase 2: start server ───────────────────────────────────────────────────
+  # Start server
   pkill -f "node.*server.js" 2>/dev/null || true
   sleep 0.3
-  cd "$DIR"
   nohup node "$DIR/server.js" > "$DIR/webterm.log" 2>&1 &
   echo $! > "$DIR/webterm.pid"
 
@@ -103,30 +70,26 @@ EOF
     curl -sf "http://localhost:$PORT/api/auth/required" &>/dev/null && break
   done
 
-  # ── Phase 3: start tunnel + capture URL ────────────────────────────────────
+  # Start tunnel
   pkill -f "cloudflared tunnel" 2>/dev/null || true
   sleep 0.3
   rm -f "$CF_LOG"
   cloudflared tunnel --url "http://localhost:$PORT" > "$CF_LOG" 2>&1 &
   echo $! > "$DIR/tunnel.pid"
 
-  # Animate while waiting for URL (up to 40s)
+  # Wait for URL (up to 40s)
+  printf "  ${GRAY}·  %d/%d  %-18s  starting...${R}\n" "$DONE" "$TOTAL" "tunnel"
   local URL=""
-  tick=0
-  printf "  ${CYAN}[${R}${GRAY}waiting for tunnel url${R}${CYAN}]${R}\n"
   for i in {1..40}; do
     sleep 1
     URL=$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' "$CF_LOG" 2>/dev/null | head -1)
     [ -n "$URL" ] && break
-    printf "\r  ${CYAN}·${R}  ${GRAY}tunnel starting%-*s${R}" $(( i % 4 )) "..."
   done
 
-  # Print result
-  printf "\r%-50s\r" " "   # clear line
   if [ -n "$URL" ]; then
-    echo -e "  ${GRN}✓${R}  ${GRAY}tunnel${R}  ${GRN}${BOLD}$URL${R}"
+    printf "  ${GRN}✓  %d/%d  %-18s  ${BOLD}%s${R}\n" "$DONE" "$TOTAL" "tunnel" "$URL"
   else
-    echo -e "  ${YLW}⚠${R}  ${GRAY}tunnel URL not found — check ${R}${CYAN}$CF_LOG${R}"
+    printf "  ${YLW}⚠  %d/%d  %-18s  URL not found — check %s${R}\n" "$DONE" "$TOTAL" "tunnel" "$CF_LOG"
   fi
 }
 
@@ -139,10 +102,10 @@ echo -e "  ${PURP}${BOLD}└─────────────────�
 echo ""
 
 # ── Before snapshot ───────────────────────────────────────────────────────────
-node_b=$(node --version   2>/dev/null || echo 'n/a')
-npm_b=$(npm --version     2>/dev/null || echo 'n/a')
-py_b=$(python3 --version  2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_b=$(pip --version     2>/dev/null | awk '{print $2}' || echo 'n/a')
+node_b=$(node --version  2>/dev/null || echo 'n/a')
+npm_b=$(npm --version    2>/dev/null || echo 'n/a')
+py_b=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
+pip_b=$(pip --version    2>/dev/null | awk '{print $2}' || echo 'n/a')
 
 echo -e "  ${GRAY}before${R}"
 printf   "  ${GRAY}  node   %-12s npm    %-12s${R}\n" "$node_b" "$npm_b"
@@ -152,22 +115,19 @@ echo -e  "  ${GRAY}────────────────────�
 echo ""
 
 # ── Installs ──────────────────────────────────────────────────────────────────
-run_step "nvm"          _install_nvm
+run_step "nvm"         _install_nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-run_step "node LTS"     nvm install --lts
+run_step "node LTS"    nvm install --lts
 nvm use --lts >/dev/null 2>&1
 nvm alias default 'lts/*' >/dev/null 2>&1
 
-run_step "npm"          npm install -g npm@latest
-run_step "opencode-ai"  npm install -g opencode-ai
-run_step "pip + tools"  pip install -q --upgrade pip setuptools wheel
+run_step "npm"         npm install -g npm@latest
+run_step "opencode-ai" npm install -g opencode-ai
+run_step "pip + tools" pip install -q --upgrade pip setuptools wheel
 
 echo ""
-echo -e  "  ${GRAY}────────────────────────────────────────${R}"
-echo ""
-
 run_webtun
 
 echo ""
