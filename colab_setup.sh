@@ -97,7 +97,7 @@ echo ""
 echo -e "  ${YLW}  bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)\"${R}"
 echo ""
 printf "  ${WHT}Install webtun now? [y/N]:${R} "
-read -r webtun_ans
+read -r webtun_ans < /dev/tty
 if [[ "$webtun_ans" =~ ^[Yy]$ ]]; then
   echo ""
   ( bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)" > /dev/null 2>&1 ) &
