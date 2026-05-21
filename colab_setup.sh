@@ -7,6 +7,7 @@ PURP='\033[38;5;135m'
 GRN='\033[38;5;70m'
 YLW='\033[38;5;178m'
 GRAY='\033[38;5;243m'
+RED=$'\033[0;31m'
 
 TOTAL=6
 DONE=0
@@ -16,27 +17,52 @@ bar_line() {
   local label="$1" state="$2" tick="${3:-0}"
   if [[ "$state" == "done" ]]; then
     printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}done${R}\n" "$DONE" "$TOTAL" "$label"
+  elif [[ "$state" == "failed" ]]; then
+    printf "  ${RED}✗${R}  ${GRAY}%d/%d${R}  %-18s  ${RED}failed${R}\n" "$DONE" "$TOTAL" "$label"
   else
-    local sp=('· ' '·· ' '···' ' ··' ' ·' '  ')
+    local sp=('·  ' '·· ' '···' ' ··' ' · ' '   ')
     printf "\r  ${CYAN}${sp[$((tick%6))]}${R}  ${GRAY}%d/%d${R}  %-18s" \
       "$DONE" "$TOTAL" "$label"
   fi
 }
 
 # ── Run a step with animated bar ─────────────────────────────────────────────
+FAILED=0
+_LOG_DIR=$(mktemp -d)
+trap 'rm -rf "$_LOG_DIR"' EXIT
+
 run_step() {
   local label="$1"; shift
   local tick=0
+  local log="$_LOG_DIR/$(echo "$label" | tr ' /' '__').log"
+
   bar_line "$label" running 0
-  ("$@" >/dev/null 2>&1) &
+  ("$@" >"$log" 2>&1) &
   local pid=$!
+
   while kill -0 "$pid" 2>/dev/null; do
-    bar_line "$label" running $tick
+    bar_line "$label" running $(( tick % 6 ))
     tick=$(( tick + 1 ))
     sleep 0.1
   done
-  DONE=$(( DONE + 1 ))
-  bar_line "$label" done
+
+  wait "$pid"
+  local exit_code=$?
+
+  if [[ $exit_code -eq 0 ]]; then
+    DONE=$(( DONE + 1 ))
+    bar_line "$label" done
+  else
+    FAILED=$(( FAILED + 1 ))
+    bar_line "$label" failed
+    if [[ -s "$log" ]]; then
+      while IFS= read -r line; do
+        printf "      ${RED}%s${R}\n" "$line"
+      done < "$log"
+    fi
+  fi
+
+  return $exit_code
 }
 
 # ── nvm install wrapper ───────────────────────────────────────────────────────
