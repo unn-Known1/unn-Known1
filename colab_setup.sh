@@ -159,8 +159,8 @@ EOFPORT
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
 echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
-echo -e "  ${PURP}${BOLD}│${R}${CYAN}${BOLD}COLAB ENV SETUP${R}                         ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}${GRAY}nvm · node · npm · opencode · webtun${R}    ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                         ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · opencode · webtun${R}    ${PURP}${BOLD}│${R}"
 echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
 echo ""
 
