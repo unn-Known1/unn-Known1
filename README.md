@@ -296,7 +296,7 @@ Tecnomatix Plant Simulation, MES, Industry 4.0, AI Agents Developer,
 Vibe Coder, Self-Taught Developer, TypeScript, Python, Rust, React,
 Three.js, Electron, Open Source, Mechanical Engineer who codes,
 AI hobbyist, NVIDIA AI Gateway, Claude AI, OpenAI, Multi-Agent Systems,
-OpenCode AI, OpenRuflo, Claude Code, Codex, Agent Orchestration,
+OpenCode AI, Claude Code, Codex, Agent Orchestration,
 RepoRank, Repository Credibility, GitHub Repo Scoring, Next.js Developer,
 Supabase, Plasmo Extension, Open Source Maintainer
 -->
