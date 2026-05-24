@@ -140,6 +140,36 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 !curl -fsSL https://raw.githubusercontent.com/unn-Known1/unn-Known1/main/colab_setup.sh | bash
 ```
 
+---
+
+## ⭐ Main Project — [RepoRank](https://www.reporank.online)
+
+> **"Can you trust this repo?"** — A repository credibility platform built from scratch.
+
+<table>
+<tr>
+<td width="100%" valign="top">
+
+### 📊 [RepoRank](https://github.com/unn-Known1/reporank.online)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![Supabase](https://img.shields.io/badge/-Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
+![Live](https://img.shields.io/badge/-Live-success?style=flat-square)
+
+Deterministic health scores + AI analysis + human reviews + embeddable badge for any GitHub repo. 18 factors across 5 dimensions → weighted 0–100 score. Open-source with browser extensions for GitHub, GitLab, npm, Bitbucket & Codeberg.
+
+```
+🏗️ 18 metrics → 🧠 AI cross-validation → 👥 Human reviews → 🏆 Badge
+```
+
+**Live**: [reporank.online](https://www.reporank.online) · **Code**: [GitHub](https://github.com/unn-Known1/reporank.online)
+
+</td>
+</tr>
+</table>
+
+---
+
 ## 🚀 Featured Builds — Hand-Picked Hobby Projects
 
 <table>
@@ -202,12 +232,12 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 ## 🎯 Currently Tinkering With
 
 ```diff
++ 🏆 RepoRank — scaling credibility scoring, AI analysis, community reviews (main focus)
 + 🤖 Smarter multi-agent AI workflows (autonomous task graphs)
 + 🏭 Bridging Industry 4.0 simulation data with LLM reasoning
 + 🎮 3D / spatial UIs (depth-os v2)
-+ 🔐 Privacy-first developer tools — local-first, P2P
 ! 🧠 Learning Rust deeper, one segfault at a time
-- 🐛 Trying to keep my coffee:bug ratio above 3:1
+- 🔐 Privacy-first developer tools — local-first, P2P
 ```
 
 ---
@@ -238,12 +268,12 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 <p align="center">
   <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Gaurang Patel on LinkedIn"/></a>
   <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Gaurang Patel on GitHub"/></a>
-  <a href="https://github.com/unn-Known1/OpenRuflo"><img src="https://img.shields.io/badge/OpenRuflo-0077B5?style=for-the-badge&logo=opencodeai&logoColor=white" alt="OpenRuflo on GitHub"/></a>
-  <a href="https://github.com/unn-Known1/WEBTUN"><img src="https://img.shields.io/badge/WEBTUN-181717?style=for-the-badge&logo=opencodeai&logoColor=white" alt="WEBTUN on GitHub"/></a>
+  <a href="https://www.reporank.online"><img src="https://img.shields.io/badge/RepoRank-00D9FF?style=for-the-badge&logo=simpleanalytics&logoColor=white" alt="RepoRank Website"/></a>
+  <a href="https://github.com/unn-Known1/reporank.online"><img src="https://img.shields.io/badge/reporank.online-181717?style=for-the-badge&logo=github&logoColor=white" alt="RepoRank on GitHub"/></a>
   <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-0077B5?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
 </p>
 
-<p align="center"><i>Open to collaborations on AI agents, OpenCode AI, developer tools, manufacturing-tech, or any wild idea you want to vibe-build with a mechanical engineer who codes for fun.</i></p>
+<p align="center"><i>Open to collaborations on AI agents, repo credibility, developer tools, manufacturing-tech, or any wild idea you want to vibe-build with a mechanical engineer who codes for fun.</i></p>
 
 ---
 
@@ -266,5 +296,7 @@ Tecnomatix Plant Simulation, MES, Industry 4.0, AI Agents Developer,
 Vibe Coder, Self-Taught Developer, TypeScript, Python, Rust, React,
 Three.js, Electron, Open Source, Mechanical Engineer who codes,
 AI hobbyist, NVIDIA AI Gateway, Claude AI, OpenAI, Multi-Agent Systems,
-OpenCode AI, OpenRuflo, Claude Code, Codex, Agent Orchestration
+OpenCode AI, OpenRuflo, Claude Code, Codex, Agent Orchestration,
+RepoRank, Repository Credibility, GitHub Repo Scoring, Next.js Developer,
+Supabase, Plasmo Extension, Open Source Maintainer
 -->
