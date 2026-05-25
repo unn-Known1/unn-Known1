@@ -72,7 +72,7 @@ _install_nvm() {
 
 # ── webtun: clone + deps + server + tunnel → capture URL ─────────────────────
 run_webtun() {
-  local PORT=3000
+  local PORT=7294
   local DIR="$HOME/webtun"
   local CF_LOG="/tmp/cf_tunnel.log"
   local tick=0
