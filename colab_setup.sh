@@ -9,7 +9,7 @@ YLW='\033[38;5;178m'
 GRAY='\033[38;5;243m'
 RED=$'\033[0;31m'
 
-TOTAL=7
+TOTAL=6
 DONE=0
 
 # ── Step counter renderer ─────────────────────────────────────────────────────
@@ -157,12 +157,8 @@ echo ""
 # ── Before snapshot ───────────────────────────────────────────────────────────
 node_b=$(node --version  2>/dev/null || echo 'n/a')
 npm_b=$(npm --version    2>/dev/null || echo 'n/a')
-py_b=$(python3 --version 2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_b=$(pip --version    2>/dev/null | awk '{print $2}' || echo 'n/a')
-
 echo -e "  ${GRAY}before${R}"
 printf   "  ${GRAY}  node   %-12s npm    %-12s${R}\n" "$node_b" "$npm_b"
-printf   "  ${GRAY}  python %-12s pip    %-12s${R}\n" "$py_b"   "$pip_b"
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
@@ -180,7 +176,7 @@ nvm alias default 'lts/*' >/dev/null 2>&1
 run_step "npm"         npm install -g npm@latest
 run_step "opencode-ai" npm install -g opencode-ai
 run_step "pnpm"        npm install -g pnpm
-run_step "pip + tools" pip install -q --upgrade pip setuptools wheel
+
 
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
@@ -195,15 +191,12 @@ echo ""
 # ── After snapshot ───────────────────────────────────────────────────────────
 node_a=$(node --version   2>/dev/null || echo 'n/a')
 npm_a=$(npm --version     2>/dev/null || echo 'n/a')
-py_a=$(python3 --version  2>/dev/null | awk '{print $2}' || echo 'n/a')
-pip_a=$(pip --version     2>/dev/null | awk '{print $2}' || echo 'n/a')
 oai_a=$(opencode --version 2>/dev/null || echo 'n/a')
 pnpm_a=$(pnpm --version 2>/dev/null || echo 'n/a')
 
 echo -e "  ${CYAN}after${R}"
 printf   "  ${GRAY}  node   ${R}${GRN}%-12s${R}${GRAY} npm    ${R}${GRN}%-12s${R}\n" "$node_a" "$npm_a"
 printf   "  ${GRAY}  pnpm  ${R}${GRN}%-12s${R}${GRAY} opencode${R} ${GRN}%-12s${R}\n" "$pnpm_a" "$oai_a"
-printf   "  ${GRAY}  python ${R}${GRN}%-12s${R}${GRAY} pip    ${R}${GRN}%-12s${R}\n" "$py_a"   "$pip_a"
 echo ""
 echo -e  "  ${PURP}◈${R}  ${BOLD}ready.${R}"
 echo ""
