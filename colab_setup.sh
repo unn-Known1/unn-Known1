@@ -8,10 +8,16 @@ GRN='\033[38;5;70m'
 YLW='\033[38;5;178m'
 GRAY='\033[38;5;243m'
 RED=$'\033[0;31m'
-
 TOTAL=6
 DONE=0
-
+# ── Track background pids for cleanup ────────────────────────────────────────
+_BG_PIDS=()
+_cleanup() {
+  [[ ${#_BG_PIDS[@]} -gt 0 ]] && kill "${_BG_PIDS[@]}" 2>/dev/null || true
+  rm -rf "${_LOG_DIR:?}"
+}
+trap '_cleanup; exit 1' INT TERM
+trap 'rm -rf "$_LOG_DIR"' EXIT
 # ── Step counter renderer ─────────────────────────────────────────────────────
 bar_line() {
   local label="$1" state="$2" tick="${3:-0}"
@@ -25,30 +31,23 @@ bar_line() {
       "$DONE" "$TOTAL" "$label"
   fi
 }
-
 # ── Run a step with animated bar ─────────────────────────────────────────────
 FAILED=0
 _LOG_DIR=$(mktemp -d)
-trap 'rm -rf "$_LOG_DIR"' EXIT
-
 run_step() {
   local label="$1"; shift
   local tick=0
   local log="$_LOG_DIR/$(echo "$label" | tr ' /' '__').log"
-
   bar_line "$label" running 0
   ("$@" >"$log" 2>&1) &
   local pid=$!
-
   while kill -0 "$pid" 2>/dev/null; do
     bar_line "$label" running $(( tick % 6 ))
     tick=$(( tick + 1 ))
     sleep 0.1
   done
-
   wait "$pid"
   local exit_code=$?
-
   if [[ $exit_code -eq 0 ]]; then
     DONE=$(( DONE + 1 ))
     bar_line "$label" done
@@ -61,72 +60,66 @@ run_step() {
       done < "$log"
     fi
   fi
-
   return $exit_code
 }
-
 # ── nvm install wrapper ───────────────────────────────────────────────────────
 _install_nvm() {
   bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh);
 }
-
 # ── webtun: clone + deps + server + tunnel → capture URL ─────────────────────
 run_webtun() {
   local PORT=7294
   local DIR="$HOME/webtun"
   local CF_LOG="/tmp/cf_tunnel.log"
   local tick=0
-
   bar_line "webtun install" running 0
-
-  # ── Phase 1: clone + npm install + cloudflared ──────────────────────────────
+  # ── Phase 1: clone + npm install ───────────────────────────────────────────
   (
-    # Clone or update
     if [ -d "$DIR" ]; then
       git -C "$DIR" pull -q 2>/dev/null || true
     else
       git clone -q https://github.com/unn-Known1/webtun.git "$DIR" 2>/dev/null
     fi
-
-    # Write .env — bypasses all interactive prompts in setup.sh
     cat > "$DIR/.env" << EOFPORT
 PORT=$PORT
 HOST=0.0.0.0
 PIN=
+WORKSPACE_ROOT=/content
 EOFPORT
-
-    # npm deps — quiet; postinstall.js handles cloudflared download
     cd "$DIR"
     npm install --loglevel=warn --ignore-engines 2>/dev/null
   ) &
   local pid=$!
+  _BG_PIDS+=("$pid")
   while kill -0 "$pid" 2>/dev/null; do
     bar_line "webtun install" running $tick
     tick=$(( tick + 1 ))
     sleep 0.1
   done
+  wait "$pid"
+  local npm_ok=$?
+  _BG_PIDS=("${_BG_PIDS[@]/$pid}")
+  if [[ $npm_ok -ne 0 ]]; then
+    bar_line "webtun install" failed
+    DONE=$(( DONE + 1 ))  # count it so progress isn't stuck
+    return
+  fi
   bar_line "webtun install" done
   DONE=$(( DONE + 1 ))
-
-  # ── Phase 2: start server ───────────────────────────────────────────────────
+  # ── Phase 2: start server ─────────────────────────────────────────────────
   pkill -f "node.*server.js" 2>/dev/null || true
   sleep 0.3
   cd "$DIR"
   nohup node "$DIR/server.js" > "$DIR/webterm.log" 2>&1 &
-
-  # Wait for server ready (up to 10s)
   for i in {1..20}; do
     sleep 0.5
     curl -sf "http://localhost:$PORT/api/auth/required" &>/dev/null && break
   done
-
   # ── Phase 3: start tunnel + capture URL ────────────────────────────────────
   pkill -f "cloudflared tunnel" 2>/dev/null || true
   sleep 0.3
   rm -f "$CF_LOG"
   cloudflared tunnel --url "http://localhost:$PORT" > "$CF_LOG" 2>&1 &
-
-  # Animate while waiting for URL (up to 40s)
   local URL=""
   tick=0
   printf "  ${CYAN}[${R}${GRAY}waiting for tunnel url${R}${CYAN}]${R}\n"
@@ -136,24 +129,20 @@ EOFPORT
     [ -n "$URL" ] && break
     printf "\r  ${CYAN}·${R}  ${GRAY}tunnel starting%-*s${R}" $(( i % 4 )) "..."
   done
-
-  # Print result
-  printf "\r%-60s\r" " "  # clear line
+  printf "\r%-60s\r" " "
   if [ -n "$URL" ]; then
     printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}${BOLD}%s${R}\n" "$DONE" "$TOTAL" "tunnel" "$URL"
   else
     printf "  ${YLW}⚠${R}  ${GRAY}%d/%d${R}  %-18s  URL not found — check ${R}${CYAN}$CF_LOG${R}\n" "$DONE" "$TOTAL" "tunnel"
   fi
 }
-
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
 echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
 echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                         ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · opencode · webtun${R}    ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · pnpm · opencode · webtun${R}    ${PURP}${BOLD}│${R}"
 echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
 echo ""
-
 # ── Before snapshot ───────────────────────────────────────────────────────────
 node_b=$(node --version  2>/dev/null || echo 'n/a')
 npm_b=$(npm --version    2>/dev/null || echo 'n/a')
@@ -162,38 +151,28 @@ printf   "  ${GRAY}  node   %-12s npm    %-12s${R}\n" "$node_b" "$npm_b"
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
-
 # ── Installs ──────────────────────────────────────────────────────────────────
 run_step "nvm"         _install_nvm
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 run_step "node LTS"    nvm install --lts
 nvm use --lts >/dev/null 2>&1
 nvm alias default 'lts/*' >/dev/null 2>&1
-
 run_step "npm"         npm install -g npm@latest
 run_step "opencode-ai" npm install -g opencode-ai
 run_step "pnpm"        npm install -g pnpm
-
-
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
-
 run_webtun
-
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
-
 # ── After snapshot ───────────────────────────────────────────────────────────
 node_a=$(node --version   2>/dev/null || echo 'n/a')
 npm_a=$(npm --version     2>/dev/null || echo 'n/a')
 oai_a=$(opencode --version 2>/dev/null || echo 'n/a')
 pnpm_a=$(pnpm --version 2>/dev/null || echo 'n/a')
-
 echo -e "  ${CYAN}after${R}"
 printf   "  ${GRAY}  node   ${R}${GRN}%-12s${R}${GRAY} npm    ${R}${GRN}%-12s${R}\n" "$node_a" "$npm_a"
 printf   "  ${GRAY}  pnpm  ${R}${GRN}%-12s${R}${GRAY} opencode${R} ${GRN}%-12s${R}\n" "$pnpm_a" "$oai_a"
