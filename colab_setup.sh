@@ -95,19 +95,9 @@ HOST=0.0.0.0
 PIN=
 EOFPORT
 
-    # npm deps — fully silent (suppress postinstall, funding, audit logs)
+    # npm deps — quiet; postinstall.js handles cloudflared download
     cd "$DIR"
-    npm install --silent --unsafe-perm --omit=optional 2>/dev/null
-
-    # cloudflared
-    if ! command -v cloudflared &>/dev/null; then
-      curl -fsSL \
-        "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64" \
-        -o /tmp/cloudflared 2>/dev/null
-      chmod +x /tmp/cloudflared
-      sudo mv /tmp/cloudflared /usr/local/bin/cloudflared 2>/dev/null \
-        || mv /tmp/cloudflared "$HOME/.local/bin/cloudflared" 2>/dev/null || true
-    fi
+    npm install --loglevel=warn --ignore-engines 2>/dev/null
   ) &
   local pid=$!
   while kill -0 "$pid" 2>/dev/null; do
