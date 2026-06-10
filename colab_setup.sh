@@ -101,12 +101,15 @@ EOFPORT
   _BG_PIDS=("${_BG_PIDS[@]/$pid}")
   if [[ $npm_ok -ne 0 ]]; then
     bar_line "webtun install" failed
-    DONE=$(( DONE + 1 ))  # count it so progress isn't stuck
     return
   fi
   bar_line "webtun install" done
   DONE=$(( DONE + 1 ))
   # ── Phase 2: start server ─────────────────────────────────────────────────
+  if [[ ! -d "$DIR" ]]; then
+    printf "  ${RED}✗${R}  ${GRAY}%d/%d${R}  %-18s  ${RED}dir not found${R}\n" "$DONE" "$TOTAL" "server"
+    return
+  fi
   pkill -f "node.*server.js" 2>/dev/null || true
   sleep 0.3
   cd "$DIR"
@@ -138,10 +141,10 @@ EOFPORT
 }
 # ── Banner ────────────────────────────────────────────────────────────────────
 echo ""
-echo -e "  ${PURP}${BOLD}┌──────────────────────────────────────────┐${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                         ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · pnpm · opencode · webtun${R}    ${PURP}${BOLD}│${R}"
-echo -e "  ${PURP}${BOLD}└──────────────────────────────────────────┘${R}"
+echo -e "  ${PURP}${BOLD}┌────────────────────────────────────────────────┐${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${CYAN}${BOLD}COLAB ENV SETUP${R}                               ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}│${R}  ${GRAY}nvm · node · npm · pnpm · opencode · webtun${R}       ${PURP}${BOLD}│${R}"
+echo -e "  ${PURP}${BOLD}└────────────────────────────────────────────────┘${R}"
 echo ""
 # ── Before snapshot ───────────────────────────────────────────────────────────
 node_b=$(node --version  2>/dev/null || echo 'n/a')
@@ -160,7 +163,7 @@ nvm use --lts >/dev/null 2>&1
 nvm alias default 'lts/*' >/dev/null 2>&1
 run_step "npm"         npm install -g npm@latest
 run_step "opencode-ai" npm install -g opencode-ai
-run_step "pnpm"        npm install -g pnpm
+run_step "pnpm"        corepack enable pnpm
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
 echo ""
