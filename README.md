@@ -53,7 +53,7 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <details open>
   <summary><b>🏭 Mechanical & Manufacturing (the day job)</b></summary>
   <br/>
-  <p align="center">
+  <p>
     <img src="https://img.shields.io/badge/Tecnomatix%20Plant%20Simulation-005691?style=for-the-badge&logo=siemens&logoColor=white" alt="Tecnomatix Plant Simulation"/>
     <img src="https://img.shields.io/badge/MES-1A73E8?style=for-the-badge" alt="Manufacturing Execution Systems"/>
     <img src="https://img.shields.io/badge/Process%20Optimization-FF6F00?style=for-the-badge" alt="Process Optimization"/>
@@ -66,7 +66,7 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <details open>
   <summary><b>💻 Code & Frameworks (the hobby)</b></summary>
   <br/>
-  <p align="center">
+  <p>
     <img src="https://skillicons.dev/icons?i=ts,js,python,rust,react,nextjs,nodejs,electron,threejs,tailwind,html,css,bash" alt="Programming languages and frameworks: TypeScript, JavaScript, Python, Rust, React, Next.js, Node.js, Electron, Three.js, Tailwind, HTML, CSS, Bash"/>
   </p>
 </details>
@@ -74,12 +74,12 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <details open>
   <summary><b>🤖 AI / LLM Playground</b></summary>
   <br/>
-  <p align="center">
+  <p>
     <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic Claude"/>
     <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
     <img src="https://img.shields.io/badge/NVIDIA%20AI-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA AI"/>
-    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
-    <img src="https://img.shields.io/badge/RAG-4B0082?style=for-the-badge" alt="Retrieval Augmented Generation"/>
+    <img src="https://img.shields.io/badge/MiniMax-4F46E5?style=for-the-badge" alt="MiniMax"/>
+    <img src="https://img.shields.io/badge/Mimo-00D9FF?style=for-the-badge" alt="Mimo"/>
     <img src="https://img.shields.io/badge/Multi--Agent%20Systems-8E44AD?style=for-the-badge" alt="Multi-agent systems"/>
     <img src="https://img.shields.io/badge/OpenCode%20AI-E34F26?style=for-the-badge&logo=opencodeai&logoColor=white" alt="OpenCode AI"/>
   </p>
@@ -88,7 +88,7 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 <details>
   <summary><b>☁️ Infra · DevOps · Tools</b></summary>
   <br/>
-  <p align="center">
+  <p>
     <img src="https://skillicons.dev/icons?i=docker,linux,git,github,githubactions,vercel,sqlite,cloudflare,vscode,postman,figma" alt="Infrastructure stack: Docker, Linux, Git, GitHub, GitHub Actions, Vercel, SQLite, Cloudflare, VSCode, Postman, Figma"/>
   </p>
 </details>
@@ -142,15 +142,53 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 
 ---
 
-## ⭐ Main Project — [RepoRank](https://www.reporank.online)
+## ⭐ Main Projects
 
-> **"Can you trust this repo?"** — A repository credibility platform built from scratch.
+> Three tools I'm proudest of — a terminal UI for GitHub, a self-hosted web terminal, and a repo credibility platform.
 
 <table>
 <tr>
 <td width="100%" valign="top">
 
-### 📊 [RepoRank](https://github.com/unn-Known1/reporank.online)
+### 💻 [GitHub TUI](https://github.com/unn-Known1/github-tui)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Node](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![Zero Deps](https://img.shields.io/badge/-Zero%20Deps-success?style=flat-square)
+![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white)
+
+A fast, zero-dependency terminal UI for GitHub — dashboards, repos, issues, PRs, inbox, actions, repo explorer with file save/clone/zipball, themes, mouse support, and more. All driven by your keyboard.
+
+```
+npx github-tui
+```
+
+**npm**: [`github-tui`](https://www.npmjs.com/package/github-tui) · **Code**: [GitHub](https://github.com/unn-Known1/github-tui)
+
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+
+### 🌐 [Web-terminal](https://github.com/unn-Known1/webtun)
+![HTML](https://img.shields.io/badge/-HTML-E34F26?style=flat-square&logo=html5&logoColor=white)
+![PWA](https://img.shields.io/badge/-PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/-Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)
+![Self-hosted](https://img.shields.io/badge/-Self--hosted-2E7D32?style=flat-square)
+
+A self-hosted web terminal with Cloudflare Tunnel — PWA, file explorer, multi-tab shell. Access your server from any browser, phone, or tablet. One-command setup.
+
+```
+curl -sSL https://cloud-linux-gui | bash
+```
+
+**Code**: [GitHub](https://github.com/unn-Known1/webtun)
+
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+
+### 📊 [RepoRank](https://www.reporank.online)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
 ![Supabase](https://img.shields.io/badge/-Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
@@ -176,14 +214,15 @@ Deterministic health scores + AI analysis + human reviews + embeddable badge for
 <tr>
 <td width="50%" valign="top">
 
-### ⚡ [NVIDIA-AI-Gateway](https://github.com/unn-Known1/NVIDIA-AI-Gateway)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Production](https://img.shields.io/badge/-Production%20Ready-success?style=flat-square)
+### 🤖 [minimax-agent-linux](https://github.com/unn-Known1/minimax-agent-linux)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Stars](https://img.shields.io/badge/-8★-yellow?style=flat-square)
+![Forks](https://img.shields.io/badge/-4⑂-blue?style=flat-square)
 
-OpenAI-compatible proxy for NVIDIA AI. Streaming, tool calls, CORS, rate limiting, SQLite logging — production-grade glue.
+Unofficial Linux port of MiniMax Agent v3.0.46 — AI-powered code assistant packaged as a .deb for Ubuntu/Debian.
 
 ```
-⚡ Streaming → 🔒 Rate-limited → 📊 Logged
+🐧 .deb package → 🤖 AI code assistant → 💻 Desktop app
 ```
 
 </td>
@@ -204,11 +243,12 @@ curl -sSL https://cloud-linux-gui | bash
 <tr>
 <td width="50%" valign="top">
 
-### 📱 [Web-terminal](https://github.com/unn-Known1/webtun)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Electron](https://img.shields.io/badge/-Electron-47848F?style=flat-square&logo=electron&logoColor=white)
+### 📈 [OpenChart](https://github.com/unn-Known1/openchart)
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![NSE](https://img.shields.io/badge/-NSE%20India-FF6F00?style=flat-square)
+![Data](https://img.shields.io/badge/-Historical%20Data-1A73E8?style=flat-square)
 
-A full-featured terminal that fits in your pocket. Cross-platform desktop + mobile.
+Python library for downloading intraday and EOD historical data from NSE (National Stock Exchange of India) and NFO — equities, F&O, indices.
 
 </td>
 <td width="50%" valign="top">
@@ -224,7 +264,7 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 </table>
 
 <p align="center">
-  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/▶️%20See%20all%2044%2B%20repos-00D9FF?style=for-the-badge&logo=github&logoColor=white" alt="Browse all repositories"/></a>
+  <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/github/repos/unn-Known1?color=00D9FF&style=for-the-badge&logo=github&logoColor=white" alt="Browse all repositories"/></a>
 </p>
 
 ---
@@ -232,6 +272,7 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 ## 🎯 Currently Tinkering With
 
 ```diff
++ 💻 github-tui — zero-dep terminal UI for GitHub (new flagship)
 + 🏆 RepoRank — scaling credibility scoring, AI analysis, community reviews (main focus)
 + 🤖 Smarter multi-agent AI workflows (autonomous task graphs)
 + 🏭 Bridging Industry 4.0 simulation data with LLM reasoning
@@ -268,8 +309,9 @@ E2E-encrypted **P2P file transfer** over your local network. No server, no insta
 <p align="center">
   <a href="https://www.linkedin.com/in/gaurangpatel5/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Gaurang Patel on LinkedIn"/></a>
   <a href="https://github.com/unn-Known1"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Gaurang Patel on GitHub"/></a>
+  <a href="https://github.com/unn-Known1/github-tui"><img src="https://img.shields.io/badge/GitHub%20TUI-0077B5?style=for-the-badge&logo=github&logoColor=white" alt="GitHub TUI"/></a>
+  <a href="https://github.com/unn-Known1/webtun"><img src="https://img.shields.io/badge/Web--terminal-181717?style=for-the-badge&logo=github&logoColor=white" alt="Web-terminal"/></a>
   <a href="https://www.reporank.online"><img src="https://img.shields.io/badge/RepoRank-00D9FF?style=for-the-badge&logo=simpleanalytics&logoColor=white" alt="RepoRank Website"/></a>
-  <a href="https://github.com/unn-Known1/reporank.online"><img src="https://img.shields.io/badge/reporank.online-181717?style=for-the-badge&logo=github&logoColor=white" alt="RepoRank on GitHub"/></a>
   <a href="https://github.com/unn-Known1?tab=repositories"><img src="https://img.shields.io/badge/All%20Projects-0077B5?style=for-the-badge&logo=rocket&logoColor=white" alt="Browse all of Gaurang's projects"/></a>
 </p>
 
