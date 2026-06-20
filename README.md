@@ -171,7 +171,7 @@ npx github-tui
 A self-hosted web terminal with Cloudflare Tunnel — PWA, file explorer, multi-tab shell. Access your server from any browser, phone, or tablet. One-command setup.
 
 ```
-curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)"
 ```
 
 **Code**: [GitHub](https://github.com/unn-Known1/webtun)
