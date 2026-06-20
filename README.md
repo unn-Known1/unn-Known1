@@ -105,13 +105,6 @@ philosophy:  "Engineering is engineering — whether it's gears or git commits."
 
 </div>
 
-### 🏆 Trophy Cabinet
-<div align="center">
-  <a href="https://github.com/unn-Known1">
-    <img src="https://github-profile-trophy.vercel.app/?username=unn-Known1&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=10" alt="GitHub achievement trophies for Gaurang Patel"/>
-  </a>
-</div>
-
 ### 📈 Contribution Activity Graph
 <div align="center">
   <a href="https://github.com/unn-Known1">
