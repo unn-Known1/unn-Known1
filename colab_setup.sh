@@ -66,29 +66,13 @@ run_step() {
 _install_nvm() {
   bash <(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh);
 }
-# ── webtun: clone + deps + server + tunnel → capture URL ─────────────────────
+# ── webtun: npm install + launch with built-in tunnel → capture URL ──────────
 run_webtun() {
   local PORT=7294
-  local DIR="$HOME/webtun"
-  local CF_LOG="/tmp/cf_tunnel.log"
+  local LOG="/tmp/webtun.log"
   local tick=0
   bar_line "webtun install" running 0
-  # ── Phase 1: clone + npm install ───────────────────────────────────────────
-  (
-    if [ -d "$DIR" ]; then
-      git -C "$DIR" pull -q 2>/dev/null || true
-    else
-      git clone -q https://github.com/unn-Known1/webtun.git "$DIR" 2>/dev/null
-    fi
-    cat > "$DIR/.env" << EOFPORT
-PORT=$PORT
-HOST=0.0.0.0
-PIN=
-WORKSPACE_ROOT=/content
-EOFPORT
-    cd "$DIR"
-    npm install --loglevel=warn --ignore-engines 2>/dev/null
-  ) &
+  (npm install -g webtun --loglevel=warn 2>/dev/null) &
   local pid=$!
   _BG_PIDS+=("$pid")
   while kill -0 "$pid" 2>/dev/null; do
@@ -105,30 +89,17 @@ EOFPORT
   fi
   bar_line "webtun install" done
   DONE=$(( DONE + 1 ))
-  # ── Phase 2: start server ─────────────────────────────────────────────────
-  if [[ ! -d "$DIR" ]]; then
-    printf "  ${RED}✗${R}  ${GRAY}%d/%d${R}  %-18s  ${RED}dir not found${R}\n" "$DONE" "$TOTAL" "server"
-    return
-  fi
-  pkill -f "node.*server.js" 2>/dev/null || true
+  # ── Launch server + tunnel in one shot ────────────────────────────────────
+  pkill -f "webtun" 2>/dev/null || true
   sleep 0.3
-  cd "$DIR"
-  nohup node "$DIR/server.js" > "$DIR/webterm.log" 2>&1 &
-  for i in {1..20}; do
-    sleep 0.5
-    curl -sf "http://localhost:$PORT/api/auth/required" &>/dev/null && break
-  done
-  # ── Phase 3: start tunnel + capture URL ────────────────────────────────────
-  pkill -f "cloudflared tunnel" 2>/dev/null || true
-  sleep 0.3
-  rm -f "$CF_LOG"
-  cloudflared tunnel --url "http://localhost:$PORT" > "$CF_LOG" 2>&1 &
+  rm -f "$LOG"
+  nohup webtun -p "$PORT" -t > "$LOG" 2>&1 &
   local URL=""
   tick=0
   printf "  ${CYAN}[${R}${GRAY}waiting for tunnel url${R}${CYAN}]${R}\n"
   for i in {1..40}; do
     sleep 1
-    URL=$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' "$CF_LOG" 2>/dev/null | head -1)
+    URL=$(grep -oE 'https://[^[:space:]]+' "$LOG" 2>/dev/null | head -1)
     [ -n "$URL" ] && break
     printf "\r  ${CYAN}·${R}  ${GRAY}tunnel starting%-*s${R}" $(( i % 4 )) "..."
   done
@@ -136,7 +107,7 @@ EOFPORT
   if [ -n "$URL" ]; then
     printf "  ${GRN}✓${R}  ${GRAY}%d/%d${R}  %-18s  ${GRN}${BOLD}%s${R}\n" "$DONE" "$TOTAL" "tunnel" "$URL"
   else
-    printf "  ${YLW}⚠${R}  ${GRAY}%d/%d${R}  %-18s  URL not found — check ${R}${CYAN}$CF_LOG${R}\n" "$DONE" "$TOTAL" "tunnel"
+    printf "  ${YLW}⚠${R}  ${GRAY}%d/%d${R}  %-18s  URL not found — check ${R}${CYAN}$LOG${R}\n" "$DONE" "$TOTAL" "tunnel"
   fi
 }
 # ── Banner ────────────────────────────────────────────────────────────────────
