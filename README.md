@@ -172,6 +172,11 @@ A self-hosted web terminal with Cloudflare Tunnel — PWA, file explorer, multi-
 
 ```
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/unn-Known1/webtun/main/install.sh)"
+
+ or
+  
+npm install -g webtun
+webtun -p 1234 -t        # directly launch the app on port and also tunnel the localhost
 ```
 
 **Code**: [GitHub](https://github.com/unn-Known1/webtun)
