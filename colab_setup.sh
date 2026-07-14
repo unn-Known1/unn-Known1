@@ -72,7 +72,7 @@ run_webtun() {
   local LOG="/tmp/webtun.log"
   local tick=0
   bar_line "webtun install" running 0
-  (npm install -g webtun --loglevel=warn 2>/dev/null) &
+  (npm install -g --allow-scripts=webtun,node-pty webtun --loglevel=warn 2>/dev/null) &
   local pid=$!
   _BG_PIDS+=("$pid")
   while kill -0 "$pid" 2>/dev/null; do
