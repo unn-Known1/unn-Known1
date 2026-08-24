@@ -8,7 +8,7 @@ GRN='\033[38;5;70m'
 YLW='\033[38;5;178m'
 GRAY='\033[38;5;243m'
 RED=$'\033[0;31m'
-TOTAL=6
+TOTAL=7
 DONE=0
 # ── Track background pids for cleanup ────────────────────────────────────────
 _BG_PIDS=()
@@ -72,7 +72,7 @@ run_webtun() {
   local LOG="/tmp/webtun.log"
   local tick=0
   bar_line "webtun install" running 0
-  (npm install -g --allow-scripts=webtun,node-pty webtun --loglevel=warn 2>/dev/null) &
+  (npm install -g webtun --loglevel=warn 2>/dev/null) &
   local pid=$!
   _BG_PIDS+=("$pid")
   while kill -0 "$pid" 2>/dev/null; do
@@ -132,6 +132,8 @@ export NVM_DIR="$HOME/.nvm"
 run_step "node LTS"    nvm install --lts
 nvm use --lts >/dev/null 2>&1
 nvm alias default 'lts/*' >/dev/null 2>&1
+# ── Allow install scripts for ALL packages, incl. future global installs ─────
+run_step "npm cfg"     npm config set dangerously-allow-all-scripts=true --location=user
 run_step "npm"         npm install -g npm@latest
 run_step "opencode-ai" npm install -g opencode-ai
 run_step "pnpm"        corepack enable pnpm
