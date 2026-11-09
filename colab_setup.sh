@@ -135,7 +135,7 @@ nvm alias default 'lts/*' >/dev/null 2>&1
 # ── Allow install scripts for ALL packages, incl. future global installs ─────
 run_step "npm cfg"     npm config set dangerously-allow-all-scripts=true --location=user
 run_step "npm"         npm install -g npm@latest
-run_step "opencode-ai" npm install -g opencode-ai
+run_step "opencode-ai" npm install -g @opencode/cli
 run_step "pnpm"        corepack enable pnpm
 echo ""
 echo -e  "  ${GRAY}────────────────────────────────────────${R}"
